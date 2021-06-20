@@ -1,0 +1,21 @@
+.formulario-inicio {
+    margin-top: 40px;
+}
+.titulo-login {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.imagen-login {
+    width: 200px;
+}
+.admin-usuarios {
+    margin-top: 40px;
+    max-width: 1200px;
+}
+
+.bg-light {
+    background-color: #46A7AA !important;
+}
+footer {
+    margin-top: 40px;
+}
