@@ -90,30 +90,24 @@
       </div>
 </nav>
 <?php elseif($page_name=='modificar.php'): ?>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Menu</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="<?php echo RUTA; ?>admin">Modificar Registro y Precio de Postes</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="<?php echo RUTA; ?>admin">Modificicar Muestra</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="<?php echo RUTA; ?>admin">Bienvenido, <?php echo $_SESSION['nombre'].' '.$_SESSION['apellido']; ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="<?php echo RUTA; ?>admin/cerrar.php">Salir</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
-            <li class="visible-xs"><a  href="<?php echo RUTA; ?>admin/registrar.php" role="button"><i class="fa fa-keyboard-o" aria-hidden="true"></i> Calcular Precio </a></li>
-            <li><a href="<?php echo RUTA; ?>opciones/index.php"><i class="fa fa-cog" aria-hidden="true"></i> Configuración</a></li>
-            <li><a href="<?php echo RUTA; ?>admin/cerrar.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></li>
-          </ul>
-          <form class="navbar-form navbar-right" name="busqueda" action="<?php echo RUTA; ?>buscar.php" method="get">
-            <input type="text" class="form-control" name="busqueda" id="busqueda" placeholder="Buscar...">
-          </form>
-        </div>
-      </div>
-</nav>
+    </nav>
 <?php elseif($page_name=='edituser.php'): ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">

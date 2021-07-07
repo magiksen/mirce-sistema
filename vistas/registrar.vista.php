@@ -21,11 +21,11 @@
                     <option value="Con pago">Con pago</option>
                 </select>
             </div>
-            <div class="mb-3 dolares">
+            <div class="mb-3 dolares no-mostrar">
                 <label for="dolares" class="form-label">Monto en $</label>
                 <input type="number" class="form-control" name="dolares" id="dolares">
             </div>
-            <div class="mb-3 bolivares">
+            <div class="mb-3 bolivares no-mostrar">
                 <label for="bolivares" class="form-label">Monto en Bs.</label>
                 <input type="number" class="form-control" name="bolivares" id="bolivares">
             </div>

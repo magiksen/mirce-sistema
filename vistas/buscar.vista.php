@@ -41,6 +41,7 @@
 				</div>
 				<?php else: ?>
             <h1 class="page-header">Muestras Registradas</h1>
+            <h2><?php echo $titulo ?></h2>
 
             <div class="table-responsive">
                 <table class="table table-hover admin">
@@ -57,6 +58,7 @@
                         <th>Impresa</th>
                         <th>Fecha</th>
                         <?php if ($_SESSION['tipo']=='admin'): ?>
+                            <th></th>
                             <th></th>
                             <th></th>
                         <?php endif; ?>
@@ -88,8 +90,13 @@
                             <td><?php echo $muestra['impresa']; ?></td>
                             <td><?php echo $muestra['fecha']; ?></td>
                             <?php if ($_SESSION['tipo']=='admin'): ?>
-                                <td class="imprimir"><a href="/admin/modificar.php?id=<?php echo $muestra['id']; ?>" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                                <td class="imprimir"><a role="button" onclick="return confirm(' ¿ Estas Seguro ?')" href="/admin/eliminar.php?id=<?php echo $muestra['id']; ?>" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                <td class="imprimir"><a href="<?php echo RUTA; ?>admin/modificar.php?id=<?php echo $muestra['id']; ?>" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                                <td class="imprimir"><a role="button" onclick="return confirm(' ¿ Estas Seguro ?')" href="<?php echo RUTA; ?>admin/eliminar.php?id=<?php echo $muestra['id']; ?>" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                <?php if ($muestra['impresa'] == 'Si'): ?>    
+                                <td class="imprimir"><i class="fa fa-ban" aria-hidden="true"></i></td>
+                                <?php else: ?>
+                                    <td class="imprimir"><a onclick="return confirm(' ¿ Estas Seguro de que se ha impreso ?')" href="<?php echo RUTA; ?>admin/imprimir.php?id=<?php echo $muestra['id']; ?>" title="Imprimir"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                                <?php endif; ?>  
                             <?php endif; ?>
                         </tr>
                     <?php endforeach; ?>

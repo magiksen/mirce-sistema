@@ -3,7 +3,7 @@
 DEFINE('RUTA', 'http://localhost/sistema/');
 
 $bd_config = array (
-	'basedatos' => 'postesdb',
+	'basedatos' => 'mircelabdb',
 	'usuario' => 'root',
 	'pass' => ''
 );

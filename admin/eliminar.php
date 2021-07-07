@@ -18,7 +18,7 @@ if (!$id) {
     header('location: ' . RUTA . 'admin');
 }
 
-$consulta = $conexion->prepare('DELETE FROM postes WHERE id = :id');
+$consulta = $conexion->prepare('DELETE FROM muestras WHERE id = :id');
 $consulta->execute(array('id' => $id));
 
 header('location: ' . RUTA . 'admin');

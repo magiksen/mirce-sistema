@@ -30,6 +30,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="<?php echo RUTA; ?>admin/registrar.php">Registrar Muestra</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Registrar Lamina/Bloque</a>
+                        </li>
                     <?php else: ?>
                         <li class="nav-item">
                             <a class="nav-link active" href="<?php echo RUTA; ?>admin">Ver registro de muestras</a>

@@ -81,7 +81,7 @@ function id_articulo($id) {
 }
 
 function obtener_post_id($conexion, $id) {
-    $resultado = $conexion->prepare("SELECT * FROM postes WHERE id = $id LIMIT 1");
+    $resultado = $conexion->prepare("SELECT * FROM muestras WHERE id = $id LIMIT 1");
     $resultado->execute();
     $resultado = $resultado->fetchAll();
     return ($resultado) ? $resultado : false;

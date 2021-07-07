@@ -2,105 +2,98 @@
 
 <?php if ($_SESSION['tipo']=='admin'): ?>
 <div class="container-fluid">
-      <div class="row">
-<?php require 'sidebar.php'; ?>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Modificar Postes y Pesos</h1>
-
-          <div class="table-responsive">
-          <form role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">	
-            <table class="table table-striped admin">
-              <thead>
-                <tr>
-			            <th>Código</th>
-			            <th>Peso Tubo #1(Kg/m)</th>
-			            <th>Longitud Tubo #1(m)</th>
-                  <th></th>
-		            </tr>
-              </thead>
-              <tbody>
-                <tr>
-                	<td><input required type="text" name="codigo" value="<?php echo $datos['codigo']?>"></td>
-        					<td><input type="text" name="peso1" id="peso1" value="<?php echo $datos['peso_t1']?>"></td>
-					        <td><input type="text" name="longitud1" id="longitud1" value="<?php echo $datos['long_t1']?>"></td>
-                  <td></td>
-                </tr>
-              </tbody>
-              <thead>
-                <tr>
-			            <th>Camisa(Kg)</th>                	
-			            <th>Peso Tubo #2(Kg/m)</th>
-			            <th>Longitud Tubo #2(m)</th>
-                  <th></th>
-		            </tr>
-              </thead>
-              <tbody>
-                <tr>
-                	<td><input type="text" name="camisa" value="<?php echo $datos['camisa']?>"></td>
-					        <td><input type="text" name="peso2" value="<?php echo $datos['peso_t2']?>"></td>
-					        <td><input type="text" name="longitud2" value="<?php echo $datos['long_t2']?>"></td>
-                  <td></td>                	
-                </tr>
-              </tbody>
-                <thead>
-                  <tr>
-			              <th>Tapa(Kg)</th>                	
-			              <th>Peso Tubo #3(Kg/m)</th>
-			              <th>Longitud Tubo #3(m)</th>
-                    <th></th>
-		            </tr>
-              </thead>
-              <tbody>
-                <tr>
-                	<td><input type="text" name="tapa" value="<?php echo $datos['tapa']?>"></td>
-					        <td><input type="text" name="peso3" value="<?php echo $datos['peso_t3']?>"></td>
-					        <td><input type="text" name="longitud3" value="<?php echo $datos['long_t3']?>"></td>
-                  <td></td>                	
-		            </tr>
-              </tbody>
-              <thead>
-                <tr>
-                  <th>Junta #1 (m)</th>
-                  <th>Junta #2 (m)</th>
-                  <th>Junta #3 (m)</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="text" name="junta1" value="<?php echo $datos['junta1']; ?>"></td>
-                  <td><input type="text" name="junta2" value="<?php echo $datos['junta2']; ?>"></td>
-                  <td><input type="text" name="junta3" value="<?php echo $datos['junta3']; ?>"></td>
-                	<td><input type="hidden" name="id" value="<?php echo $datos['id']; ?>"></td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td colspan="4" class="text-center"><button type="submit" class="btn btn-success">Actualizar</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </form>
-          </div>
+    <div class="row justify-content-center">
+    <div class="col-sm-5 col-sm-offset-5 col-md-5 col-md-offset-5 main admin-usuarios">
+        <h1 class="page-header">Registrar Muestra</h1>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
+            <div class="mb-3">
+                <label for="codigo" class="form-label">Código</label>
+                <input type="text" class="form-control" name="codigo" id="codigo" value="<?php echo $datos['codigo']?>">
+            </div>
+            <div class="mb-3">
+                <label for="nombre_institucion" class="form-label">Nombre Institución</label>
+                <input type="text" class="form-control" name="nombre_institucion" id="nombre_institucion" value="<?php echo $datos['nombre_institucion']?>">
+            </div>
+            <div class="mb-3">
+                <label for="pago" class="form-label">Pago</label>
+                <?php if ($datos['pago'] == 'Sin pago'): ?>
+                <select class="form-select" name="pago" id="pago">
+                    <option value="Sin pago">Sin pago</option>
+                    <option value="Con pago">Con pago</option>
+                </select>
+              <?php else: ?>
+                <select class="form-select" name="pago" id="pago">
+                  <option value="Con pago">Con pago</option>
+                    <option value="Sin pago">Sin pago</option>
+                </select>
+              <?php endif; ?>
+            </div>
+            <div class="mb-3 dolares no-mostrar">
+                <label for="dolares" class="form-label">Monto en $</label>
+                <input type="number" class="form-control" name="dolares" id="dolares" value="<?php echo $datos['dolares']?>">
+            </div>
+            <div class="mb-3 bolivares no-mostrar">
+                <label for="bolivares" class="form-label">Monto en Bs.</label>
+                <input type="number" class="form-control" name="bolivares" id="bolivares" value="<?php echo $datos['bolivares']?>">
+            </div>
+            <div class="mb-3">
+                <label for="nombre_paciente" class="form-label">Nombre del Paciente</label>
+                <input type="text" class="form-control" name="nombre_paciente" id="nombre_paciente" value="<?php echo $datos['nombre_paciente']?>">
+            </div>
+            <div class="mb-3">
+                <label for="ci_paciente" class="form-label">Cedula del Paciente</label>
+                <input type="text" class="form-control" name="ci_paciente" id="ci_paciente" value="<?php echo $datos['ci_paciente']?>">
+            </div>
+            <div class="mb-3">
+                <label for="tipo" class="form-label">Tipo de Muestra</label>
+                <?php if ($datos['tipo'] == 'Biopsia'): ?>
+                <select class="form-select" name="tipo" id="tipo">
+                    <option value="Biopsia">Biopsia</option>
+                    <option value="Citologia">Citologia</option>
+                    <option value="Autopsias">Autopsias</option>
+                </select>
+                <?php elseif ($datos['tipo'] == 'Citologia'): ?>
+                <select class="form-select" name="tipo" id="tipo">
+                    <option value="Citologia">Citologia</option>
+                    <option value="Biopsia">Biopsia</option>
+                    <option value="Autopsias">Autopsias</option>
+                </select>
+                <?php elseif ($datos['tipo'] == 'Autopsias'): ?>
+                <select class="form-select" name="tipo" id="tipo">
+                    <option value="Autopsias">Autopsias</option>
+                    <option value="Citologia">Citologia</option>
+                    <option value="Biopsia">Biopsia</option>
+                </select>
+                <?php endif; ?>
+            </div>
+            <div class="mb-3">
+                <input type="hidden" class="form-control" name="impresa" id="impresa" value="<?php echo $datos['impresa']?>">
+            </div>
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input type="text" class="form-control" name="fecha" id="fecha" value="<?php echo $datos['fecha']?>">
+            </div>
+            <div class="mb-3">
+                <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $datos['id']?>">
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
         </div>
-      </div>
+        </div>
 </div>
-
 <?php else: ?>
 <div class="container-fluid">
       <div class="row">
-<?php require 'sidebar.php'; ?>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-12 col-sm-offset-12 col-md-12 col-md-offset-12 main">
           <h1 class="page-header">Error</h1>
           <div>
-          	<i class="fa fa-exclamation-circle fa-4x" aria-hidden="true"></i>
+            <i class="fa fa-exclamation-circle fa-4x" aria-hidden="true"></i>
             <h2 class="error">Disculpa Ha Ocurrido un Error!</h2>
             <h3 class="error"> Usted no tiene permiso para ingresar en esta pagina, para ir al inicio haga <a href="<?php echo RUTA; ?>admin">Click Aquí</a></h3>
           </div>
                     
         </div>
       </div>
-</div>				
+</div>        
 <?php endif; ?>
-
-<?php require 'footer.php'; ?> 
+<?php require 'footer.php'; ?>
