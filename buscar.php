@@ -10,11 +10,6 @@ if (!$conexion) {
     header('location: error.php');
 }
 
-$opciones = obtener_opciones($conexion);
-$opciones = $opciones[0];
-$iva = $opciones['iva'];
-$precio = $opciones['precio'];
-
 if ($_SESSION['tipo'] == 'super') {
     if ($_SERVER['REQUEST_METHOD'] == 'GET' && !empty($_GET['busqueda'])) {
         $busqueda = limpiarDatosMinus($_GET['busqueda']);

@@ -7,10 +7,6 @@
         <h1 class="page-header">Registrar Muestra</h1>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
             <div class="mb-3">
-                <label for="codigo" class="form-label">Código</label>
-                <input type="text" class="form-control" name="codigo" id="codigo">
-            </div>
-            <div class="mb-3">
                 <label for="nombre_institucion" class="form-label">Nombre Institución</label>
                 <input type="text" class="form-control" name="nombre_institucion" id="nombre_institucion">
             </div>

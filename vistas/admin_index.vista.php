@@ -90,7 +90,7 @@
                      <td><?php echo $muestra['impresa']; ?></td>
                      <td><?php echo $muestra['fecha']; ?></td>
 					 <?php if ($_SESSION['tipo']=='admin'): ?>
-                         <td class="imprimir"><a href="reglamina.php?id=<?php echo $muestra['id']; ?>" title="Registra Lamina/Bloque"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></td>
+                     <td class="imprimir"><a href="reglamina.php?id=<?php echo $muestra['id']; ?>" title="Registra Lamina/Bloque"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></td>
 			         <td class="imprimir"><a href="modificar.php?id=<?php echo $muestra['id']; ?>" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
 			         <td class="imprimir"><a role="button" onclick="return confirm(' ¿ Estas Seguro ?')" href="eliminar.php?id=<?php echo $muestra['id']; ?>" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 			         <?php if ($muestra['impresa'] == 'Si'): ?>    

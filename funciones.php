@@ -57,14 +57,14 @@ function obtener_datos($datos_pagina, $conexion) {
     return $sentencia->fetchAll();
 }
 
-function reporte_datos($conexion) {
-    $sentencia = $conexion->prepare("SELECT * FROM postes");
+function reporte_usuarios($conexion) {
+    $sentencia = $conexion->prepare("SELECT * FROM usuarios");
     $sentencia->execute();
     return $sentencia->fetchAll();
 }
 
-function reporte_usuarios($conexion) {
-    $sentencia = $conexion->prepare("SELECT * FROM usuarios");
+function codigos_muestras($conexion) {
+    $sentencia = $conexion->prepare("SELECT * FROM codigos");
     $sentencia->execute();
     return $sentencia->fetchAll();
 }
@@ -82,13 +82,6 @@ function id_articulo($id) {
 
 function obtener_post_id($conexion, $id) {
     $resultado = $conexion->prepare("SELECT * FROM muestras WHERE id = $id LIMIT 1");
-    $resultado->execute();
-    $resultado = $resultado->fetchAll();
-    return ($resultado) ? $resultado : false;
-}
-
-function obtener_opciones($conexion) {
-    $resultado = $conexion->prepare("SELECT * FROM opciones WHERE id = 1 LIMIT 1");
     $resultado->execute();
     $resultado = $resultado->fetchAll();
     return ($resultado) ? $resultado : false;
