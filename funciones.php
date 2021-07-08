@@ -105,5 +105,33 @@ function fecha($fecha) {
     return $fecha;
 }
 
+function numeromuestras($conexion) {
+    $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras");
+    $resultado->execute();
+    $resultado = $resultado->fetchAll();
+    return ($resultado) ? $resultado : false;
+}
+
+function numerocitologias($conexion) {
+    $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras WHERE tipo = 'Citologia'");
+    $resultado->execute();
+    $resultado = $resultado->fetchAll();
+    return ($resultado) ? $resultado : false;
+}
+
+function numerobiopsias($conexion) {
+    $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras WHERE tipo = 'Biopsia'");
+    $resultado->execute();
+    $resultado = $resultado->fetchAll();
+    return ($resultado) ? $resultado : false;
+}
+
+function numeroautopsia($conexion) {
+    $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras WHERE tipo = 'Autopsias'");
+    $resultado->execute();
+    $resultado = $resultado->fetchAll();
+    return ($resultado) ? $resultado : false;
+}
+
 
 ?>

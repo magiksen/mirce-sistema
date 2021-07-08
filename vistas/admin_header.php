@@ -32,7 +32,7 @@
                             <a class="nav-link active" href="<?php echo RUTA; ?>admin/registrar.php">Registrar Muestra</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Estadísticas</a>
+                            <a class="nav-link active" href="<?php echo RUTA; ?>admin/estadisticas.php">Estadísticas</a>
                         </li>
                     <?php else: ?>
                         <li class="nav-item">
