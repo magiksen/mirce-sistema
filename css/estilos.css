@@ -10,7 +10,7 @@
 }
 .admin-usuarios {
     margin-top: 40px;
-    max-width: 1200px;
+    max-width: 1360px;
 }
 
 .bg-light {
@@ -24,3 +24,37 @@ footer {
     display: none;
 }
 */
+
+.imprimir a {
+    color: #98BB2A;
+}
+
+.page-link {
+    color: #98BB2A;
+}
+
+.page-link:hover {
+    color: #46A7AA;
+}
+
+.page-header {
+    color: #46A7AA;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #98BB2A;
+    border-color: #98BB2A;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #98BB2A;
+    border-color: #98BB2A;
+    opacity: 0.8;
+}
+
+.btn-outline-success {
+    color: #fff;
+    border-color: #fff;
+}

@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
     <div class="col-sm-5 col-sm-offset-5 col-md-5 col-md-offset-5 main admin-usuarios">
-        <h1 class="page-header">Registrar Muestra</h1>
+        <h1 class="page-header">Modificar Muestra</h1>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
             <div class="mb-3">
                 <label for="codigo" class="form-label">Código</label>
@@ -77,6 +77,7 @@
                 <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $datos['id']?>">
             </div>
             <button type="submit" class="btn btn-primary">Actualizar</button>
+            <a class="btn btn-danger" href="<?php echo RUTA; ?>admin" role="button">Volver</a>
         </form>
         </div>
         </div>

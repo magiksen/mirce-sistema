@@ -53,6 +53,7 @@
                 <input type="text" class="form-control" name="fecha" id="fecha">
             </div>
             <button type="submit" class="btn btn-primary">Registrar</button>
+            <a class="btn btn-danger" href="<?php echo RUTA; ?>admin" role="button">Volver</a>
         </form>
         </div>
         </div>

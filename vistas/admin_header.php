@@ -13,7 +13,8 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Mircelab</a>
+
+            <a class="navbar-brand" href="#"><img src="<?php echo RUTA; ?>img/logo-header.png" alt="logo-header" width="50px"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,7 +32,7 @@
                             <a class="nav-link active" href="<?php echo RUTA; ?>admin/registrar.php">Registrar Muestra</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Registrar Lamina/Bloque</a>
+                            <a class="nav-link active" href="#">Estadísticas</a>
                         </li>
                     <?php else: ?>
                         <li class="nav-item">
