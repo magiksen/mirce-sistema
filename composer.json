@@ -1,0 +1,14 @@
+{
+  "name": "Sistema Mircelab",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Magiksen",
+      "email": "elemejore@gmail.com"
+    }
+  ],
+  "require": {
+  }
+}
