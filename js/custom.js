@@ -22,3 +22,14 @@ $('#pago').on('change', function() {
   		$('.bolivares').hide();
   	}
 });
+
+$( function() {
+	$( "#fecha" ).datepicker({
+		dateFormat: "dd-mm-yy",
+		dayNames: [ "Domingo", "Lunes", "Martes", "Miércoles", "Jeueves", "Viernes", "Sábado" ],
+		dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+		dayNamesShort: [ "Dom", "Lun", "Mar", "Mir", "Jue", "Vie", "Sab" ],
+		monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+		monthNamesShort: [ "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic" ]
+	});
+} );
