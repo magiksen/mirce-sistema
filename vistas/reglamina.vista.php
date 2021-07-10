@@ -20,7 +20,7 @@
                         <?php endif;?>
                     </div>
                     <div class="mb-3">
-                        <label for="bloque" class="form-label"># Lámina</label>
+                        <label for="bloque" class="form-label"># Bloque</label>
                         <?php if($datos['bloque'] == ''):?>
                             <input type="text" class="form-control" name="bloque" id="bloque" value="Sin Bloque">
                         <?php else:?>
