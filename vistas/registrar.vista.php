@@ -19,11 +19,11 @@
             </div>
             <div class="mb-3 dolares no-mostrar">
                 <label for="dolares" class="form-label">Monto en $</label>
-                <input type="number" class="form-control" name="dolares" id="dolares">
+                <input type="number" class="form-control" name="dolares" id="dolares" value="0">
             </div>
             <div class="mb-3 bolivares no-mostrar">
                 <label for="bolivares" class="form-label">Monto en Bs.</label>
-                <input type="number" class="form-control" name="bolivares" id="bolivares">
+                <input type="number" class="form-control" name="bolivares" id="bolivares" value="0">
             </div>
             <div class="mb-3">
                 <label for="nombre_paciente" class="form-label">Nombre del Paciente</label>
@@ -42,7 +42,7 @@
                 </select>
             </div>
             <div class="mb-3">
-                <input type="hidden" class="form-control" name="impresa" id="impresa" value="no">
+                <input type="hidden" class="form-control" name="impresa" id="impresa" value="No">
             </div>
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha</label>

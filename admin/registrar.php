@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $codigo_biopsia = $datos['biopsias'];
           $codigo_citologia = $datos['citologias'];
           $codigo_autopsia = $datos['autopsias'];
+          $twoYear = date("y");
 
           if ($tipo == 'Biopsia') {
               $codigo = $codigo_biopsia + 1;
@@ -40,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   'biopsias' => $codigo,
                   'id' => $id
               ));
+              $codigo = $codigo. '-'.$twoYear;
           } elseif ($tipo == 'Citologia') {
               $codigo = $codigo_citologia + 1;
               $id = 1;
@@ -51,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   'citologias' => $codigo,
                   'id' => $id
               ));
+              $codigo = $codigo. '-'.$twoYear;
           } else {
               $codigo = $codigo_autopsia + 1;
               $id = 1;
@@ -62,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   'autopsias' => $codigo,
                   'id' => $id
               ));
+              $codigo = $codigo. '-'.$twoYear;
           }
 
          $consulta = $conexion->prepare(
@@ -82,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'fecha' => $fecha
             ));
 
+        $titulo = 'Muestra registrada correctamente';
 
     header('location: ' . RUTA . 'admin/index.php');
 } 

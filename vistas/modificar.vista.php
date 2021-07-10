@@ -8,7 +8,7 @@
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
             <div class="mb-3">
                 <label for="codigo" class="form-label">Código</label>
-                <input type="text" class="form-control" name="codigo" id="codigo" value="<?php echo $datos['codigo']?>">
+                <input type="text" class="form-control" name="codigo" id="codigo" value="<?php echo $datos['codigo']?>" readonly>
             </div>
             <div class="mb-3">
                 <label for="nombre_institucion" class="form-label">Nombre Institución</label>

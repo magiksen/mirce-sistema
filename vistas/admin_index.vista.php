@@ -40,6 +40,11 @@
 					</table>
 				</div>
 				<?php else: ?>
+            <?php if (!empty($titulo)): ?>
+                <div class="mb-3 alert alert-success" role="alert">
+                    <strong>Perfecto!</strong> <?php echo $titulo; ?>
+                </div>
+            <?php endif; ?>
           <h1 class="page-header">Muestras</h1>
 
           <div class="table-responsive">
