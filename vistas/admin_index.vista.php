@@ -42,11 +42,39 @@
 				<?php else: ?>
             <?php if (!empty($titulo)): ?>
                 <div class="mb-3 alert alert-success" role="alert">
-                    <strong>Perfecto!</strong> <?php echo $titulo; ?>
+                    <strong><?php echo $titulo; ?></strong>
                 </div>
             <?php endif; ?>
           <h1 class="page-header">Muestras</h1>
-
+          <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseFiltros" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Filtros
+          </a>
+          <div class="filtros collapse" id="collapseFiltros">
+              <form class="row g-3" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
+                  <div class="mb-3 col-md-3">
+                      <label for="fecha" class="form-label">Fecha</label>
+                      <input type="text" class="form-control" name="fecha" id="fecha">
+                  </div>
+                  <div class="mb-3 col-md-3">
+                      <label for="pago" class="form-label">Pago</label>
+                      <select class="form-select" name="pago" id="pago">
+                          <option value="Ambos">Ambos</option>
+                          <option value="Sin pago">Sin pago</option>
+                          <option value="Con pago">Con pago</option>
+                      </select>
+                  </div>
+                  <div class="mb-3 col-md-3">
+                      <label for="tipo" class="form-label">Tipo de Muestra</label>
+                      <select class="form-select" name="tipo" id="tipo">
+                          <option value="Todas">Todas</option>
+                          <option value="Biopsia">Biopsia</option>
+                          <option value="Citologia">Citologia</option>
+                          <option value="Autopsias">Autopsias</option>
+                      </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary col-md-4">Filtrar</button>
+              </form>
+          </div>
           <div class="table-responsive">
             <table class="table table-hover admin">
               <thead>
@@ -70,6 +98,7 @@
 		       </tr>
               </thead>
               <tbody>
+              <?php if (!empty($datos)): ?>
                 <?php foreach($datos as $muestra): ?>
 			     <tr>
 			     	 <td><?php echo $muestra['codigo']; ?></td>
@@ -106,6 +135,11 @@
 					 <?php endif; ?>
 			     </tr>
 			     <?php endforeach; ?>
+              <?php else: ?>
+              <tr>
+                  <td></td>
+              </tr>
+              <?php endif; ?>
               </tbody>
 						</table>
 						<?php require 'paginacion.php'; ?>

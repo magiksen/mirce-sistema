@@ -58,3 +58,10 @@ footer {
     color: #fff;
     border-color: #fff;
 }
+
+.btn-primary:active, .btn-primary:focus {
+    color: #fff;
+    background-color: #46A7AA;
+    border-color: #46A7AA;
+    box-shadow: none;
+}
