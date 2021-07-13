@@ -72,7 +72,9 @@
                           <option value="Autopsias">Autopsias</option>
                       </select>
                   </div>
-                  <button type="submit" class="btn btn-primary col-md-4">Filtrar</button>
+                  <div class="col-md-12">
+                      <button type="submit" class="btn btn-primary">Filtrar</button>
+                  </div>
               </form>
           </div>
           <div class="table-responsive">

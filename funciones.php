@@ -133,5 +133,4 @@ function numeroautopsia($conexion) {
     return ($resultado) ? $resultado : false;
 }
 
-
 ?>
