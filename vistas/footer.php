@@ -5,7 +5,7 @@ $count = count( $name_array );
 $page_name = $name_array[$count-1];
 ?>
 <?php if ($page_name=='index.php' || $page_name=='buscar.php' ): ?>
-<footer class="footer fixed-bottom">
+<footer class="footer">
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid justify-content-center">
             <a class="navbar-brand" href="<?php echo RUTA; ?>/admin">Realizado por Mircelab. © 2021. Todos los Derechos Reservados</a>
