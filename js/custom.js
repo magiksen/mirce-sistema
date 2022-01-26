@@ -41,3 +41,10 @@ $( function() {
 		monthNamesShort: [ "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic" ]
 	});
 });
+
+// Verificar pagina activa
+$('.nav-item a').filter(function(){
+  return this.href === location.href;
+}).addClass('active');
+
+   

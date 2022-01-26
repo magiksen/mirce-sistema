@@ -22,26 +22,32 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?php echo RUTA; ?>admin">Bienvenido, <?php echo $_SESSION['nombre'].' '.$_SESSION['apellido']; ?></a>
+                        <a class="nav-link" aria-current="page" href="<?php echo RUTA; ?>admin">Bienvenido, <?php echo $_SESSION['nombre'].' '.$_SESSION['apellido']; ?></a>
                     </li>
                     <?php if ($_SESSION['tipo']=='super'): ?>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?php echo RUTA; ?>admin/reguser.php">Registrar Usuario</a>
+                            <a class="nav-link" href="<?php echo RUTA; ?>admin/reguser.php">Registrar Usuario</a>
                         </li>
                     <?php elseif ($_SESSION['tipo']=='admin'): ?>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?php echo RUTA; ?>admin/registrar.php">Registrar Muestra</a>
+                            <a class="nav-link" href="<?php echo RUTA; ?>admin/registrar.php">Registrar Muestra</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?php echo RUTA; ?>admin/estadisticas.php">Estadísticas</a>
+                            <a class="nav-link" href="<?php echo RUTA; ?>admin/administracion.php">Administracion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo RUTA; ?>admin/estadisticas.php">Estadísticas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo RUTA; ?>admin/opciones.php">Opciones</a>
                         </li>
                     <?php else: ?>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?php echo RUTA; ?>admin">Ver registro de muestras</a>
+                            <a class="nav-link" href="<?php echo RUTA; ?>admin">Ver registro de muestras</a>
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?php echo RUTA; ?>admin/cerrar.php">Salir</a>
+                        <a class="nav-link" aria-current="page" href="<?php echo RUTA; ?>admin/cerrar.php">Salir</a>
                     </li>
                 </ul>
                 <form class="d-flex" action="<?php echo RUTA; ?>buscar.php" method="get">

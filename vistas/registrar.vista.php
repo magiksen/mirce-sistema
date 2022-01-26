@@ -1,4 +1,4 @@
-<?php require 'header.php'; ?> 
+<?php require 'admin_header.php'; ?> 
 
 <?php if ($_SESSION['tipo']=='admin'): ?>
 <div class="container-fluid">
