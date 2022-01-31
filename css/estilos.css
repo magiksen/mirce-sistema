@@ -89,3 +89,13 @@ td a:hover {
 .table>:not(caption)>*>* {
     vertical-align: middle;
 }
+
+.total-pago td {
+    font-weight: 600;
+    color: green;
+}
+
+.total-deuda td {
+    font-weight: 600;
+    color: red;
+}
