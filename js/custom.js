@@ -47,4 +47,14 @@ $('.nav-item a').filter(function(){
   return this.href === location.href;
 }).addClass('active');
 
+$('#cat_padre').change(function(){
+   var cat_selected = $(this).val();
+   console.log(cat_selected);
+   if (cat_selected == 'Principal') {
+   	$('.hideOnSelect').show();
+   } else {
+   	$('.hideOnSelect').hide();
+   }
+});
+
    

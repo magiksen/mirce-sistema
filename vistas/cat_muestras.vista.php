@@ -15,13 +15,15 @@
                     <select class="form-select" name="cat_padre" id="cat_padre">
                     <option value="Principal">Principal</option>
                     <?php foreach($datos as $dato): ?>
+                    <?php if($dato['cat_padre'] == 'Principal'): ?>
                     <option value="<?php echo $dato['nombre']; ?>"><?php echo $dato['nombre']; ?></option>
+                    <?php endif; ?>
                     <?php endforeach; ?> 
                 </select>
                 </div>
                 <div class="mb-3">
-                    <label for="codigo" class="form-label">Código</label>
-                    <input type="text" class="form-control" name="codigo" id="codigo">
+                    <label for="codigo" class="form-label hideOnSelect">Código</label>
+                    <input type="text" class="form-control hideOnSelect" name="codigo" id="codigo">
                 </div>
                 <button type="submit" class="btn btn-primary">Guardar</button>
                 <a class="btn btn-danger" href="<?php echo RUTA; ?>admin" role="button">Volver</a>
@@ -48,7 +50,11 @@
                                 <td><?php echo $dato['id']; ?></td>
                                 <td><?php echo $dato['nombre']; ?></td>
                                 <td><?php echo $dato['cat_padre']; ?></td>
+                                <?php if($dato['cat_padre'] == 'Principal'): ?>
                                 <td><?php echo $dato['codigo']; ?></td>
+                                <?php else: ?>
+                                <td>-</td>
+                                <?php endif; ?>
                                 <td class="imprimir"><a href="editcat.php?id=<?php echo $dato['id']; ?>" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                                 <td class="imprimir"><a role="button" onclick="return confirm(' ¿ Estas Seguro ?')" href="eliminarcat.php?id=<?php echo $dato['id']; ?>" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                 <td></td>

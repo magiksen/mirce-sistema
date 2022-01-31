@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $codigo = limpiarDatosInicio($_POST['codigo']);
           $cat_padre = limpiarDatosInicio($_POST['cat_padre']);
 
+          $codigo = $codigo !== '' ? $codigo : 0;
+
           
          
          $consulta = $conexion->prepare(
