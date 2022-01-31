@@ -1,4 +1,4 @@
-<?php require 'header.php'; ?> 
+<?php require 'admin_header.php'; ?> 
 
 <?php if ($_SESSION['tipo']=='admin'): ?>
 <div class="container-fluid">
@@ -13,6 +13,10 @@
             <div class="mb-3">
                 <label for="nombre_institucion" class="form-label">Nombre Institución</label>
                 <input type="text" class="form-control" name="nombre_institucion" id="nombre_institucion" value="<?php echo $datos['nombre_institucion']?>">
+            </div>
+            <div class="mb-3">
+                <label for="nombre_doctor" class="form-label">Nombre Doctor</label>
+                <input type="text" class="form-control" name="nombre_doctor" id="nombre_doctor" value="<?php echo $datos['nombre_doctor']?>">
             </div>
             <div class="mb-3">
                 <label for="pago" class="form-label">Pago</label>
@@ -46,25 +50,14 @@
             </div>
             <div class="mb-3">
                 <label for="tipo" class="form-label">Tipo de Muestra</label>
-                <?php if ($datos['tipo'] == 'Biopsia'): ?>
                 <select class="form-select" name="tipo" id="tipo">
-                    <option value="Biopsia">Biopsia</option>
-                    <option value="Citologia">Citologia</option>
-                    <option value="Autopsias">Autopsias</option>
+                    <option value="<?php echo $daticos; ?>"><?php echo $datos['tipo_tejido']; ?></option>
+                    <?php foreach($tipos_muestras as $tipo_muestra): ?>
+                    <?php if($tipo_muestra['cat_padre'] !== 'Principal'): ?>    
+                    <option value="<?php echo $tipo_muestra['id']; ?>"><?php echo $tipo_muestra['nombre']; ?></option>
+                    <?php endif; ?> 
+                    <?php endforeach; ?> 
                 </select>
-                <?php elseif ($datos['tipo'] == 'Citologia'): ?>
-                <select class="form-select" name="tipo" id="tipo">
-                    <option value="Citologia">Citologia</option>
-                    <option value="Biopsia">Biopsia</option>
-                    <option value="Autopsias">Autopsias</option>
-                </select>
-                <?php elseif ($datos['tipo'] == 'Autopsias'): ?>
-                <select class="form-select" name="tipo" id="tipo">
-                    <option value="Autopsias">Autopsias</option>
-                    <option value="Citologia">Citologia</option>
-                    <option value="Biopsia">Biopsia</option>
-                </select>
-                <?php endif; ?>
             </div>
             <div class="mb-3">
                 <input type="hidden" class="form-control" name="impresa" id="impresa" value="<?php echo $datos['impresa']?>">

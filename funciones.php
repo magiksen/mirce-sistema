@@ -89,6 +89,13 @@ function obtener_cat_parent($conexion, $id) {
     return ($resultado) ? $resultado : false;
 }
 
+function obtener_cat_id_by_name($conexion, $name) {
+    $resultado = $conexion->prepare("SELECT id FROM categorias WHERE nombre LIKE :busqueda LIMIT 1");
+    $resultado->execute(array(':busqueda' => "%$name%"));
+    $resultado = $resultado->fetchAll();
+    return ($resultado) ? $resultado : false;
+}
+
 function obtener_cat_name($conexion, $id) {
     $resultado = $conexion->prepare("SELECT nombre FROM categorias WHERE id = $id LIMIT 1");
     $resultado->execute();
