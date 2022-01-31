@@ -75,6 +75,13 @@ function cat_muestras($conexion) {
     return $sentencia->fetchAll();
 }
 
+function obtener_cat_id($conexion, $id) {
+    $resultado = $conexion->prepare("SELECT * FROM categorias WHERE id = $id LIMIT 1");
+    $resultado->execute();
+    $resultado = $resultado->fetchAll();
+    return ($resultado) ? $resultado : false;
+}
+
 function reporte_usuarios_id($conexion, $id) {
     $resultado = $conexion->prepare("SELECT * FROM usuarios WHERE id = $id LIMIT 1");
     $resultado->execute();

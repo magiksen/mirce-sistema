@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <h1 class="page-header">Categorías de muestras</h1>
         <div class="col-sm-5 col-sm-offset-5 col-md-5 col-md-offset-5 main admin-usuarios">
-            <h2>Registrar de muestras</h2>
+            <h2>Registrar Categoría</h2>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
@@ -48,8 +48,8 @@
                                 <td><?php echo $dato['nombre']; ?></td>
                                 <td><?php echo $dato['cat_padre']; ?></td>
                                 <td><?php echo $dato['codigo']; ?></td>
-                                <td></td>
-                                <td></td>
+                                <td class="imprimir"><a href="editcat.php?id=<?php echo $dato['id']; ?>" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                                <td class="imprimir"><a role="button" onclick="return confirm(' ¿ Estas Seguro ?')" href="eliminarcat.php?id=<?php echo $dato['id']; ?>" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                 <td></td>
                             </tr>
                         <?php endforeach; ?>    
