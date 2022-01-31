@@ -148,9 +148,9 @@
                      <td><?php echo $muestra['nombre_institucion']; ?></td>
                      <td><?php echo $muestra['nombre_doctor']; ?></td>
                      <?php if ($muestra['pago']=='Sin pago'): ?>
-                     <td>Sin pago</td>
+                     <td><p style="margin-bottom: 0;"><span style="font-size: 10px;color: red;">Deuda:</span></p>$<?php echo number_format($muestra['dolares'], 0, '', '.'); ?> | Bs. <?php echo number_format($muestra['bolivares'],0, '', '.'); ?></td>
                      <?php else: ?>
-                     <td>$<?php echo number_format($muestra['dolares'], 0, '', '.'); ?> | Bs. <?php echo number_format($muestra['bolivares'],0, '', '.'); ?></td>
+                     <td><p style="margin-bottom: 0;"><span style="font-size: 10px;color: green;">Pagado:</span></p>$<?php echo number_format($muestra['dolares'], 0, '', '.'); ?> | Bs. <?php echo number_format($muestra['bolivares'],0, '', '.'); ?></td>
                      <?php endif; ?>
                      <td><?php echo $muestra['nombre_paciente']; ?></td>
                      <td><?php echo number_format($muestra['ci_paciente'], 0, '', '.'); ?></td>

@@ -85,3 +85,7 @@ td a:hover {
     color: #98BB2A!important;
     text-decoration: underline;
 }
+
+.table>:not(caption)>*>* {
+    vertical-align: middle;
+}

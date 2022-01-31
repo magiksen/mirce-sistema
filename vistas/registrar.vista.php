@@ -18,11 +18,11 @@
                 </select>
             </div>
             <div class="mb-3 dolares no-mostrar">
-                <label for="dolares" class="form-label">Monto en $</label>
+                <label for="dolares" class="form-label dolarLabel">Deuda en $</label>
                 <input type="number" class="form-control" name="dolares" id="dolares" value="0">
             </div>
             <div class="mb-3 bolivares no-mostrar">
-                <label for="bolivares" class="form-label">Monto en Bs.</label>
+                <label for="bolivares" class="form-label bolivarLabel">Deuda en Bs.</label>
                 <input type="number" class="form-control" name="bolivares" id="bolivares" value="0">
             </div>
             <div class="mb-3">
