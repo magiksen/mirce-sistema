@@ -16,15 +16,13 @@ if (!$conexion) {
 //traer el numero de muestra registradas
 $numeromuestras = numeromuestras($conexion);
 $numeromuestras = $numeromuestras[0];
-// traer numero de citologias
-$numerocitologias = numerocitologias($conexion);
-$numerocitologias = $numerocitologias[0];
-// traer numero de biopsias
-$numerobiopsias = numerobiopsias($conexion);
-$numerobiopsias = $numerobiopsias[0];
-// traer numero de Autopsias
-$numeroautopsia = numeroautopsia($conexion);
-$numeroautopsia = $numeroautopsia[0];
+// traer numero de cada muestra
+
+$cadamuestra = cat_muestras($conexion);
+
+$cadainst= traer_item_inst($conexion);
+
+$cadadoctor= traer_item_doctor($conexion);
 
 //$date = date('d-m-Y');
 
@@ -32,27 +30,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fecha = limpiarDatosInicio($_POST['fecha']);
     $fechados = limpiarDatosInicio($_POST['fechados']);
     $tipo = limpiarDatosInicio($_POST['tipo']);
+    $inst = limpiarDatosInicio($_POST['inst']);
+    $doctor = limpiarDatosInicio($_POST['doctor']);
 
     if (empty($fechados)) {
         $fechados = $fecha;
     }
 
-    if ($tipo == 'Todas') {
-        $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras WHERE fecha BETWEEN :fecha AND :fechados ");
-        $resultado->execute(array(
-            ':fecha' => "$fecha",
-            ':fechados' => "$fechados"
-        ));
+    $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras WHERE tipo = :tipo OR nombre_institucion = :inst OR nombre_doctor = :doctor OR fecha BETWEEN :fecha AND :fechados");
+    $resultado->execute(array(
+                ':tipo' => "$tipo",
+                ':inst' => "$inst",
+                ':doctor' => "$doctor",
+                ':fecha' => "$fecha",
+                ':fechados' => "$fechados"
+            ));
 
-    } else {
-        $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras WHERE tipo = :tipo AND fecha BETWEEN :fecha AND :fechados ");
-        $resultado->execute(array(
-            ':tipo' => "$tipo",
-            ':fecha' => "$fecha",
-            ':fechados' => "$fechados"
-        ));
-
-    }
     $resultado = $resultado->fetchAll();
     $numeromuestrasfiltro = $resultado;
     $numeromuestrasfiltro = $numeromuestrasfiltro[0];

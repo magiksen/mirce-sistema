@@ -23,7 +23,7 @@
                 <h1 class="page-header">Muestra #<?php echo $datos['codigo']?></h1>
                 <p><strong>Código muestra:</strong> <?php echo $datos['codigo']?></p>
                 <p><strong>Institución:</strong> <?php echo $datos['nombre_institucion']?></p>
-                <p><strong>Doctor:</strong> <?php echo $datos['nombre_doctor']?></p>
+                <p><strong>Doctor/ra:</strong> <?php echo $datos['nombre_doctor']?></p>
                 <p><strong>Nombre paciente:</strong> <?php echo $datos['nombre_paciente']?></p>
                 <p><strong>Cedula Paciente:</strong> <?php echo $datos['ci_paciente']?></p>
                 <p><strong>Tipo:</strong> <?php echo $datos['tipo']?></p>

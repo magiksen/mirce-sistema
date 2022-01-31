@@ -30,7 +30,7 @@
                 <input type="text" class="form-control" name="nombre_paciente" id="nombre_paciente">
             </div>
             <div class="mb-3">
-                <label for="nombre_doctor" class="form-label">Nombre del Doctor</label>
+                <label for="nombre_doctor" class="form-label">Nombre del Doctor/ra</label>
                 <input type="text" class="form-control" name="nombre_doctor" id="nombre_doctor">
             </div>
             <div class="mb-3">

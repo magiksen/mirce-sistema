@@ -153,25 +153,23 @@ function numeromuestras($conexion) {
     return ($resultado) ? $resultado : false;
 }
 
-function numerocitologias($conexion) {
-    $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras WHERE tipo = 'Citologia'");
-    $resultado->execute();
+function numerodecadamuestra($conexion, $tipo) {
+    $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras WHERE tipo LIKE :busqueda LIMIT 1");
+    $resultado->execute(array(':busqueda' => "%$tipo%"));
     $resultado = $resultado->fetchAll();
     return ($resultado) ? $resultado : false;
 }
 
-function numerobiopsias($conexion) {
-    $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras WHERE tipo = 'Biopsia'");
-    $resultado->execute();
-    $resultado = $resultado->fetchAll();
-    return ($resultado) ? $resultado : false;
+function traer_item_inst($conexion) {
+    $sentencia = $conexion->prepare("SELECT DISTINCT nombre_institucion FROM muestras");
+    $sentencia->execute();
+    return $sentencia->fetchAll();
 }
 
-function numeroautopsia($conexion) {
-    $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras WHERE tipo = 'Autopsias'");
-    $resultado->execute();
-    $resultado = $resultado->fetchAll();
-    return ($resultado) ? $resultado : false;
+function traer_item_doctor($conexion) {
+    $sentencia = $conexion->prepare("SELECT DISTINCT nombre_doctor FROM muestras");
+    $sentencia->execute();
+    return $sentencia->fetchAll();
 }
 
 ?>

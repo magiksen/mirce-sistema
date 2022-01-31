@@ -125,7 +125,7 @@
                 <tr>
       			        <th>Código</th>
       			        <th>Nombre Institución</th>
-                    <th>Nombre Doctor</th>
+                    <th>Nombre Doctor/ra</th>
       			        <th>Pago</th>
                     <th>Nombre Paciente</th>
                     <th>Cedula Paciente</th>

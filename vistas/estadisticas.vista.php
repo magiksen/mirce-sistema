@@ -12,27 +12,17 @@
                     <a class="btn btn-primary" href="<?php echo RUTA; ?>admin/registrar.php" role="button">Registrar nueva muestra</a>
                 </div>
             </div>
-            <div class="card muestras-registradas" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Citologias registradas</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Total</h6>
-                    <p class="card-text"><span class="badge bg-success"><?php echo $numerocitologias[0]; ?></span></p>
+            <?php foreach($cadamuestra as $muestra): ?>
+                <?php if($muestra['cat_padre'] == 'Principal'): ?>
+                <div class="card muestras-registradas" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $muestra['nombre'] ?> registradas</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Total</h6>
+                        <p class="card-text"><span class="badge bg-success"><?php $counts = numerodecadamuestra($conexion, $muestra['nombre']); ?><?php echo $counts[0][0]; ?></span></p>
+                    </div>
                 </div>
-            </div>
-            <div class="card muestras-registradas" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Biopsias registradas</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Total</h6>
-                    <p class="card-text"><span class="badge bg-success"><?php echo $numerobiopsias[0]; ?></span></p>
-                </div>
-            </div>
-            <div class="card muestras-registradas" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Autopsias registradas</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Total</h6>
-                    <p class="card-text"><span class="badge bg-success"><?php echo $numeroautopsia[0]; ?></span></p>
-                </div>
-            </div>
+            <?php endif; ?>
+            <?php endforeach; ?>    
         </div>
         <div style="margin-top: 40px;background-color: #46A7AA;padding: 30px;width: 99%;" class="estadisticas-dias col-sm-12 col-sm-offset-12 col-md-12 col-md-offset-12 main d-flex flex-column justify-content-between">
             <h2>Filtrar</h2>
@@ -46,12 +36,32 @@
                     <input type="text" class="form-control" name="fechados" id="fechados">
                 </div>
                 <div class="mb-3 col-md-3">
+                    <label for="inst" class="form-label">Institución</label>
+                    <select class="form-select" name="inst" id="inst">
+                        <option value="Todas">Todos</option>
+                        <?php foreach($cadainst as $item): ?>
+                        <option value="<?php echo $item['nombre_institucion']; ?>"><?php echo $item['nombre_institucion']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="mb-3 col-md-3">
+                    <label for="doctor" class="form-label">Doctor/ra</label>
+                    <select class="form-select" name="doctor" id="doctor">
+                        <option value="Todas">Todos</option>
+                        <?php foreach($cadadoctor as $item): ?>
+                        <option value="<?php echo $item['nombre_doctor']; ?>"><?php echo $item['nombre_doctor']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="mb-3 col-md-3">
                     <label for="tipo" class="form-label">Tipo de Muestra</label>
                     <select class="form-select" name="tipo" id="tipo">
                         <option value="Todas">Todas</option>
-                        <option value="Biopsia">Biopsia</option>
-                        <option value="Citologia">Citologia</option>
-                        <option value="Autopsias">Autopsias</option>
+                        <?php foreach($cadamuestra as $tipo_muestra): ?>
+                        <?php if($tipo_muestra['cat_padre'] == 'Principal'): ?>    
+                        <option value="<?php echo $tipo_muestra['nombre']; ?>"><?php echo $tipo_muestra['nombre']; ?></option>
+                        <?php endif; ?> 
+                        <?php endforeach; ?> 
                     </select>
                 </div>
                 <div class="col-md-12">
@@ -66,7 +76,6 @@
                         <h5 class="card-title">Resultados</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Total</h6>
                         <p class="card-text"><span class="badge bg-success"><?php echo $numeromuestrasfiltro[0]; ?></span></p>
-                        <a class="btn btn-primary" href="#" role="button">Reporte</a>
                     </div>
                 </div>
             <?php endif; ?>

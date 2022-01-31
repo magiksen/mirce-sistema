@@ -15,7 +15,7 @@
                 <input type="text" class="form-control" name="nombre_institucion" id="nombre_institucion" value="<?php echo $datos['nombre_institucion']?>">
             </div>
             <div class="mb-3">
-                <label for="nombre_doctor" class="form-label">Nombre Doctor</label>
+                <label for="nombre_doctor" class="form-label">Nombre Doctor/ra</label>
                 <input type="text" class="form-control" name="nombre_doctor" id="nombre_doctor" value="<?php echo $datos['nombre_doctor']?>">
             </div>
             <div class="mb-3">
