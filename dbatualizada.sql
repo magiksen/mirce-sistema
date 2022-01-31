@@ -12,8 +12,28 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+-- Volcando estructura para tabla mircelab.categorias
+CREATE TABLE IF NOT EXISTS `categorias` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  `codigo` int(11) NOT NULL,
+  `cat_padre` varchar(50) DEFAULT NULL,
+  `cat_hijos` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- Volcando datos para la tabla mircelab.categorias: ~3 rows (aproximadamente)
+DELETE FROM `categorias`;
+/*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
+INSERT INTO `categorias` (`id`, `nombre`, `codigo`, `cat_padre`, `cat_hijos`) VALUES
+	(1, 'Biopsias', 4, 'Principal', NULL);
+INSERT INTO `categorias` (`id`, `nombre`, `codigo`, `cat_padre`, `cat_hijos`) VALUES
+	(2, 'Citologías', 102, 'Principal', NULL);
+INSERT INTO `categorias` (`id`, `nombre`, `codigo`, `cat_padre`, `cat_hijos`) VALUES
+	(3, 'Subcategoría 1', 1005, 'Biposias', NULL);
+/*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
+
 -- Volcando estructura para tabla mircelab.codigos
-DROP TABLE IF EXISTS `codigos`;
 CREATE TABLE IF NOT EXISTS `codigos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `biopsias` int(11) DEFAULT NULL,
@@ -26,11 +46,10 @@ CREATE TABLE IF NOT EXISTS `codigos` (
 DELETE FROM `codigos`;
 /*!40000 ALTER TABLE `codigos` DISABLE KEYS */;
 INSERT INTO `codigos` (`id`, `biopsias`, `citologias`, `autopsias`) VALUES
-	(1, 3, 102, 1003);
+	(1, 3, 102, 1018);
 /*!40000 ALTER TABLE `codigos` ENABLE KEYS */;
 
 -- Volcando estructura para tabla mircelab.muestras
-DROP TABLE IF EXISTS `muestras`;
 CREATE TABLE IF NOT EXISTS `muestras` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_institucion` varchar(100) DEFAULT NULL,
@@ -45,24 +64,33 @@ CREATE TABLE IF NOT EXISTS `muestras` (
   `lamina` varchar(100) DEFAULT NULL,
   `impresa` varchar(100) DEFAULT NULL,
   `fecha` varchar(100) DEFAULT NULL,
+  `nombre_doctor` varchar(100) DEFAULT NULL,
+  `tipo_tejido` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla mircelab.muestras: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla mircelab.muestras: ~8 rows (aproximadamente)
 DELETE FROM `muestras`;
 /*!40000 ALTER TABLE `muestras` DISABLE KEYS */;
-INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`) VALUES
-	(5, 'Clinica 2', 'Sin pago', 0, 0, 'Paciente 2', '222222', '1001-22', 'Autopsias', NULL, NULL, 'No', '25-01-2022');
-INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`) VALUES
-	(6, 'Clinica 3', 'Sin pago', 0, 0, 'Paciente 3', '333333', '1002-22', 'Autopsias', '1-1', '1-1', 'No', '25-01-2022');
-INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`) VALUES
-	(7, 'Clinica 4', 'Con pago', 50, 0, 'Paciente 4', '444444', '101-22', 'Citologia', NULL, NULL, 'No', '25-01-2022');
-INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`) VALUES
-	(8, 'Clinica 4', 'Con pago', 0, 500, 'Paciente 5', '5555555', '2-22', 'Biopsia', NULL, NULL, 'No', '25-01-2022');
+INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`, `nombre_doctor`, `tipo_tejido`) VALUES
+	(5, 'Clinica 2', 'Sin pago', 0, 0, 'Paciente 2', '222222', '1001-22', 'Autopsias', NULL, NULL, 'No', '25-01-2022', NULL, NULL);
+INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`, `nombre_doctor`, `tipo_tejido`) VALUES
+	(6, 'Clinica 3', 'Sin pago', 0, 0, 'Paciente 3', '333333', '1002-22', 'Autopsias', '1-1', '1-1', 'No', '25-01-2022', NULL, NULL);
+INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`, `nombre_doctor`, `tipo_tejido`) VALUES
+	(7, 'Clinica 4', 'Con pago', 50, 0, 'Paciente 4', '444444', '101-22', 'Citologia', NULL, NULL, 'No', '25-01-2022', NULL, NULL);
+INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`, `nombre_doctor`, `tipo_tejido`) VALUES
+	(8, 'Clinica 4', 'Con pago', 0, 500, 'Paciente 5', '5555555', '2-22', 'Biopsia', NULL, NULL, 'No', '25-01-2022', NULL, NULL);
+INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`, `nombre_doctor`, `tipo_tejido`) VALUES
+	(9, 'Clinica 4', 'Sin pago', 0, 0, 'Paciente 6', '1234567', '1004-22', 'Citologías', '1-1, 2-2, 3-3, 4-4, 5-5', '1-1, 2-2, 3-3, 4-4, 5-5', 'No', '30-01-2022', 'Doctor 1', NULL);
+INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`, `nombre_doctor`, `tipo_tejido`) VALUES
+	(23, '3wqewqe', 'Sin pago', 0, 0, 'wqeqw', '23432423', '1018-22', 'Biposias', NULL, NULL, 'No', '30-01-2022', 'wqeqwe4', 'Subcategoría 1');
+INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`, `nombre_doctor`, `tipo_tejido`) VALUES
+	(26, 'qweqwe', 'Sin pago', 0, 0, 'wqeqwe', '12312', '1004-22', 'Biposias', NULL, NULL, 'No', '30-01-2022', 'wqeqwe', 'Subcategoría 1');
+INSERT INTO `muestras` (`id`, `nombre_institucion`, `pago`, `dolares`, `bolivares`, `nombre_paciente`, `ci_paciente`, `codigo`, `tipo`, `bloque`, `lamina`, `impresa`, `fecha`, `nombre_doctor`, `tipo_tejido`) VALUES
+	(27, 'ytujytj', 'Sin pago', 0, 0, 'ghjgh', '4535345', '1005-22', 'Biposias', NULL, NULL, 'No', '30-01-2022', 'ghjg', 'Subcategoría 1');
 /*!40000 ALTER TABLE `muestras` ENABLE KEYS */;
 
 -- Volcando estructura para tabla mircelab.opciones
-DROP TABLE IF EXISTS `opciones`;
 CREATE TABLE IF NOT EXISTS `opciones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `precio` float NOT NULL DEFAULT 0,
@@ -78,7 +106,6 @@ INSERT INTO `opciones` (`id`, `precio`, `iva`) VALUES
 /*!40000 ALTER TABLE `opciones` ENABLE KEYS */;
 
 -- Volcando estructura para tabla mircelab.postes
-DROP TABLE IF EXISTS `postes`;
 CREATE TABLE IF NOT EXISTS `postes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `codigo` varchar(100) DEFAULT NULL,
@@ -141,7 +168,6 @@ INSERT INTO `postes` (`id`, `codigo`, `peso_t1`, `peso_t2`, `peso_t3`, `long_t1`
 /*!40000 ALTER TABLE `postes` ENABLE KEYS */;
 
 -- Volcando estructura para tabla mircelab.usuarios
-DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario` varchar(100) NOT NULL,
@@ -154,9 +180,9 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre` (`usuario`),
   UNIQUE KEY `ci` (`ci`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla mircelab.usuarios: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla mircelab.usuarios: ~6 rows (aproximadamente)
 DELETE FROM `usuarios`;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 INSERT INTO `usuarios` (`id`, `usuario`, `nombre`, `apellido`, `ci`, `departamento`, `pass`, `tipo`) VALUES
@@ -167,6 +193,10 @@ INSERT INTO `usuarios` (`id`, `usuario`, `nombre`, `apellido`, `ci`, `departamen
 	(10, 'sam_esco', 'Samuel', 'Escobar', 20192274, 'Informatica', '92f39f7f2a869838cd5085e6f17fc82109bcf98cd62a47cbc379e38de80bbc0213a23cee6e4a13de6caae0add8a390272d6f0883c274320b1ff60dbcfc6dd750', 'user');
 INSERT INTO `usuarios` (`id`, `usuario`, `nombre`, `apellido`, `ci`, `departamento`, `pass`, `tipo`) VALUES
 	(13, 'testing', 'Usuario1', 'Usuerio test', 12121121, 'No se', '92f39f7f2a869838cd5085e6f17fc82109bcf98cd62a47cbc379e38de80bbc0213a23cee6e4a13de6caae0add8a390272d6f0883c274320b1ff60dbcfc6dd750', 'user');
+INSERT INTO `usuarios` (`id`, `usuario`, `nombre`, `apellido`, `ci`, `departamento`, `pass`, `tipo`) VALUES
+	(14, 'juanita', 'Juana', 'Lopez', 1222222, 'Registrar bloques y laminas', '92f39f7f2a869838cd5085e6f17fc82109bcf98cd62a47cbc379e38de80bbc0213a23cee6e4a13de6caae0add8a390272d6f0883c274320b1ff60dbcfc6dd750', 'lamina');
+INSERT INTO `usuarios` (`id`, `usuario`, `nombre`, `apellido`, `ci`, `departamento`, `pass`, `tipo`) VALUES
+	(15, 'usuario2', 'Transcriptora', 'Transcriptora', 11111111, 'Transcribir', '92f39f7f2a869838cd5085e6f17fc82109bcf98cd62a47cbc379e38de80bbc0213a23cee6e4a13de6caae0add8a390272d6f0883c274320b1ff60dbcfc6dd750', 'transcriptora');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
