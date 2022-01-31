@@ -30,15 +30,32 @@
                 <input type="text" class="form-control" name="nombre_paciente" id="nombre_paciente">
             </div>
             <div class="mb-3">
-                <label for="ci_paciente" class="form-label">Cedula del Paciente</label>
+                <label for="nombre_doctor" class="form-label">Nombre del Doctor</label>
+                <input type="text" class="form-control" name="nombre_doctor" id="nombre_doctor">
+            </div>
+            <div class="mb-3">
+                <label for="ci_paciente" class="form-label">Cédula del Paciente</label>
                 <input type="text" class="form-control" name="ci_paciente" id="ci_paciente">
             </div>
             <div class="mb-3">
                 <label for="tipo" class="form-label">Tipo de Muestra</label>
                 <select class="form-select" name="tipo" id="tipo">
-                    <option value="Biopsia">Biopsia</option>
-                    <option value="Citologia">Citologia</option>
-                    <option value="Autopsias">Autopsias</option>
+                    <?php foreach($tipos_muestras as $tipo_muestra): ?>
+                    <?php if($tipo_muestra['cat_padre'] == NULL): ?>    
+                    <option value="<?php echo $tipo_muestra['nombre']; ?>"><?php echo $tipo_muestra['nombre']; ?></option>
+                    <?php endif; ?> 
+                    <?php endforeach; ?> 
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="tipo_tejido" class="form-label">Tipo de Tejido</label>
+                <select class="form-select" name="tipo_tejido" id="tipo_tejido">
+                    <option value="NULL">No tiene</option>
+                    <?php foreach($tipos_muestras as $tipo_muestra): ?>
+                    <?php if($tipo_muestra['cat_padre'] !== NULL): ?>    
+                    <option value="<?php echo $tipo_muestra['nombre']; ?>"><?php echo $tipo_muestra['nombre']; ?></option>
+                    <?php endif; ?> 
+                    <?php endforeach; ?> 
                 </select>
             </div>
             <div class="mb-3">

@@ -13,6 +13,8 @@ if (!$conexion) {
 $datos = codigos_muestras($conexion);
 $datos = $datos[0];
 
+$tipos_muestras = cat_muestras($conexion);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           //$codigo = limpiarDatosInicio($_POST['codigo']);
           $nombre_institucion = limpiarDatosInicio($_POST['nombre_institucion']);
@@ -20,8 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $dolares = limpiarDatosInicio($_POST['dolares']);
           $bolivares = limpiarDatosInicio($_POST['bolivares']);
           $nombre_paciente = limpiarDatosInicio($_POST['nombre_paciente']);
+          $nombre_doctor = limpiarDatosInicio($_POST['nombre_doctor']);
           $ci_paciente = limpiarDatosInicio($_POST['ci_paciente']);
           $tipo = limpiarDatosInicio($_POST['tipo']);
+          $tipo_tejido = limpiarDatosInicio($_POST['tipo_tejido']);
           $impresa = limpiarDatosInicio($_POST['impresa']);
           $fecha = limpiarDatosInicio($_POST['fecha']);
 
@@ -69,8 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           }
 
          $consulta = $conexion->prepare(
-          'INSERT INTO muestras (id, codigo, nombre_institucion, pago, dolares, bolivares, nombre_paciente, ci_paciente, tipo, impresa, fecha)
-          VALUES (null, :codigo, :nombre_institucion, :pago, :dolares, :bolivares, :nombre_paciente, :ci_paciente, :tipo, :impresa, :fecha)'
+          'INSERT INTO muestras (id, codigo, nombre_institucion, pago, dolares, bolivares, nombre_paciente, ci_paciente, tipo, impresa, fecha, nombre_doctor)
+          VALUES (null, :codigo, :nombre_institucion, :pago, :dolares, :bolivares, :nombre_paciente, :ci_paciente, :tipo, :impresa, :fecha, :nombre_doctor)'
           );
 
           $consulta->execute(array(
@@ -83,7 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'ci_paciente' => $ci_paciente,
                 'tipo' => $tipo,
                 'impresa' => $impresa,
-                'fecha' => $fecha
+                'fecha' => $fecha,
+                'nombre_doctor' => $nombre_doctor
             ));
 
         $titulo = 'Muestra registrada correctamente';

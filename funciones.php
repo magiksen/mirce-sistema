@@ -69,6 +69,12 @@ function codigos_muestras($conexion) {
     return $sentencia->fetchAll();
 }
 
+function cat_muestras($conexion) {
+    $sentencia = $conexion->prepare("SELECT * FROM categorias");
+    $sentencia->execute();
+    return $sentencia->fetchAll();
+}
+
 function reporte_usuarios_id($conexion, $id) {
     $resultado = $conexion->prepare("SELECT * FROM usuarios WHERE id = $id LIMIT 1");
     $resultado->execute();

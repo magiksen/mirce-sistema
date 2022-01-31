@@ -29,10 +29,10 @@
                     <div class="mb-3">
                         <label for="tipo" class="form-label">Tipo</label>
                         <select class="form-select" name="tipo" id="tipo">
-                            <option value="citologias">Citologias</option>
-                            <option value="biopsias">Biopsias</option>
+                            <option value="transcriptora">Transcriptora</option>
+                            <option value="lamina">Laminas Y Bloques</option>
                             <option value="user">Usuario</option>
-                            <option value="admin">Administrador</option>
+                            <option value="admin">Doctora</option>
                             <option value="super">SuperAdmin</option>
                         </select>
                     </div>

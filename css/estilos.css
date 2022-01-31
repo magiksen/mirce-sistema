@@ -75,3 +75,13 @@ a.nav-link.active {
 a.nav-link:hover {
     color: #fff!important;
 }
+
+td a {
+    color: #46a7aa!important;
+    text-decoration: none;
+}
+
+td a:hover {
+    color: #98BB2A!important;
+    text-decoration: underline;
+}

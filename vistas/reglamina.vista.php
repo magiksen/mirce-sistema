@@ -1,6 +1,6 @@
 <?php require 'header.php'; ?>
 
-<?php if ($_SESSION['tipo']=='admin'): ?>
+<?php if ($_SESSION['tipo']=='lamina'): ?>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-sm-5 col-sm-offset-5 col-md-5 col-md-offset-5 main admin-usuarios">
@@ -11,8 +11,11 @@
                 <p><strong>Cedula Paciente:</strong> <?php echo $datos['ci_paciente']?></p>
                 <p><strong>Tipo:</strong> <?php echo $datos['tipo']?></p>
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
+                    <div class="alert alert-info" role="alert">
+                      Serpara los numeros de bloques y láminas por cóma (,) ejem: 1-1, 2-2...
+                    </div>
                     <div class="mb-3">
-                        <label for="lamina" class="form-label"># Lámina</label>
+                        <label for="lamina" class="form-label"># Láminas</label>
                         <?php if($datos['lamina'] == ''):?>
                         <input type="text" class="form-control" name="lamina" id="lamina" value="Sin Lámina">
                         <?php else:?>
@@ -20,7 +23,7 @@
                         <?php endif;?>
                     </div>
                     <div class="mb-3">
-                        <label for="bloque" class="form-label"># Bloque</label>
+                        <label for="bloque" class="form-label"># Bloques</label>
                         <?php if($datos['bloque'] == ''):?>
                             <input type="text" class="form-control" name="bloque" id="bloque" value="Sin Bloque">
                         <?php else:?>
@@ -30,7 +33,7 @@
                     <div class="mb-3">
                         <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $datos['id']?>">
                     </div>
-                    <button type="submit" class="btn btn-primary">Registrar Lámina/Bloque</button>
+                    <button type="submit" class="btn btn-primary">Registrar Láminas/Bloques</button>
                     <a class="btn btn-danger" href="<?php echo RUTA; ?>admin" role="button">Volver</a>
                 </form>
             </div>

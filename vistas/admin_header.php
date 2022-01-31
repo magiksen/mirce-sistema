@@ -33,13 +33,16 @@
                             <a class="nav-link" href="<?php echo RUTA; ?>admin/registrar.php">Registrar Muestra</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo RUTA; ?>admin/administracion.php">Administracion</a>
+                            <a class="nav-link" href="<?php echo RUTA; ?>admin/administracion.php">Administración</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo RUTA; ?>admin/estadisticas.php">Estadísticas</a>
                         </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="<?php echo RUTA; ?>admin/opciones.php">Códigos</a>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo RUTA; ?>admin/opciones.php">Opciones</a>
+                            <a class="nav-link" href="<?php echo RUTA; ?>admin/cat_muestras.php">Categorías de muestras</a>
                         </li>
                     <?php else: ?>
                         <li class="nav-item">
