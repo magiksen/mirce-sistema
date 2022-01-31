@@ -32,9 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            $tipo = 'sin datos';
           }
 
-          $daticos = $daticos[0][0];
+          $cat_name = $daticos[0][0];
 
-          $tipo = $daticos;
+          $tipo = $cat_name;
+
+          $cat_id = $daticos[0][1];
 
           $subcat_name = obtener_cat_name($conexion, $tipo_tejido);
           $subcat_name = $subcat_name[0][0];
@@ -44,48 +46,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $impresa = limpiarDatosInicio($_POST['impresa']);
           $fecha = limpiarDatosInicio($_POST['fecha']);
 
-          $codigo_biopsia = $datos['biopsias'];
-          $codigo_citologia = $datos['citologias'];
-          $codigo_autopsia = $datos['autopsias'];
           $twoYear = date("y");
 
-          if ($tipo == 'Biopsia') {
-              $codigo = $codigo_biopsia + 1;
-              $id = 1;
-              $actualizar_codigos = $conexion->prepare(
-                  'UPDATE codigos SET biopsias = :biopsias WHERE id = :id'
+          $cat_code = obtener_cat_code($conexion, $cat_id);
+          $cat_code = $cat_code[0][0];
+
+          $cat_code = $cat_code + 1;
+
+          $actualizar_codigos = $conexion->prepare(
+                  'UPDATE categorias SET codigo = :codigo WHERE id = :id'
               );
 
-              $actualizar_codigos  ->execute(array(
-                  'biopsias' => $codigo,
-                  'id' => $id
+          $actualizar_codigos  ->execute(array(
+                  'codigo' => $cat_code,
+                  'id' => $cat_id
               ));
-              $codigo = $codigo. '-'.$twoYear;
-          } elseif ($tipo == 'Citologia') {
-              $codigo = $codigo_citologia + 1;
-              $id = 1;
-              $actualizar_codigos = $conexion->prepare(
-                  'UPDATE codigos SET citologias = :citologias WHERE id = :id'
-              );
 
-              $actualizar_codigos  ->execute(array(
-                  'citologias' => $codigo,
-                  'id' => $id
-              ));
-              $codigo = $codigo. '-'.$twoYear;
-          } else {
-              $codigo = $codigo_autopsia + 1;
-              $id = 1;
-              $actualizar_codigos = $conexion->prepare(
-                  'UPDATE codigos SET autopsias = :autopsias WHERE id = :id'
-              );
 
-              $actualizar_codigos  ->execute(array(
-                  'autopsias' => $codigo,
-                  'id' => $id
-              ));
-              $codigo = $codigo. '-'.$twoYear;
-          }
+          
+          $codigo = $cat_code. '-'.$twoYear;
+ 
 
          $consulta = $conexion->prepare(
           'INSERT INTO muestras (id, codigo, nombre_institucion, pago, dolares, bolivares, nombre_paciente, ci_paciente, tipo, impresa, fecha, nombre_doctor, tipo_tejido)

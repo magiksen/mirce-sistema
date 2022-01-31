@@ -83,7 +83,7 @@ function obtener_cat_id($conexion, $id) {
 }
 
 function obtener_cat_parent($conexion, $id) {
-    $resultado = $conexion->prepare("SELECT cat_padre FROM categorias WHERE id = $id LIMIT 1");
+    $resultado = $conexion->prepare("SELECT cat_padre, id FROM categorias WHERE id = $id LIMIT 1");
     $resultado->execute();
     $resultado = $resultado->fetchAll();
     return ($resultado) ? $resultado : false;
@@ -91,6 +91,13 @@ function obtener_cat_parent($conexion, $id) {
 
 function obtener_cat_name($conexion, $id) {
     $resultado = $conexion->prepare("SELECT nombre FROM categorias WHERE id = $id LIMIT 1");
+    $resultado->execute();
+    $resultado = $resultado->fetchAll();
+    return ($resultado) ? $resultado : false;
+}
+
+function obtener_cat_code($conexion, $id) {
+    $resultado = $conexion->prepare("SELECT codigo FROM categorias WHERE id = $id LIMIT 1");
     $resultado->execute();
     $resultado = $resultado->fetchAll();
     return ($resultado) ? $resultado : false;
