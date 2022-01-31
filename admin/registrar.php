@@ -36,7 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
           $tipo = $cat_name;
 
-          $cat_id = $daticos[0][1];
+          $get_cat_id = obtener_cat_parent_id($conexion, $cat_name);
+
+          $cat_id = $get_cat_id[0][0];
 
           $subcat_name = obtener_cat_name($conexion, $tipo_tejido);
           $subcat_name = $subcat_name[0][0];
@@ -89,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $titulo = 'Muestra registrada correctamente';
 
-    header('location: ' . RUTA . 'admin/index.php');
+    //header('location: ' . RUTA . 'admin/index.php');
 } 
 
 require ('../vistas/registrar.vista.php');
