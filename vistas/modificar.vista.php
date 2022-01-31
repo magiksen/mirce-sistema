@@ -33,11 +33,11 @@
               <?php endif; ?>
             </div>
             <div class="mb-3 dolares no-mostrar">
-                <label for="dolares" class="form-label">Monto en $</label>
+                <label for="dolares" class="form-label dolarLabel"><?php if ($datos['pago'] == 'Sin pago'): ?>Deuda en $<?php else: ?>Monto en $<?php endif; ?></label>
                 <input type="number" class="form-control" name="dolares" id="dolares" value="<?php echo $datos['dolares']?>">
             </div>
             <div class="mb-3 bolivares no-mostrar">
-                <label for="bolivares" class="form-label">Monto en Bs.</label>
+                <label for="bolivares" class="form-label bolivarLabel"><?php if ($datos['pago'] == 'Sin pago'): ?>Deuda en Bs.<?php else: ?>Monto en Bs.<?php endif; ?></label>
                 <input type="number" class="form-control" name="bolivares" id="bolivares" value="<?php echo $datos['bolivares']?>">
             </div>
             <div class="mb-3">
