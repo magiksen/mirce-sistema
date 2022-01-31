@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $titulo = 'Muestra registrada correctamente';
 
-    //header('location: ' . RUTA . 'admin/index.php');
+    header('location: ' . RUTA . 'admin/index.php');
 } 
 
 require ('../vistas/registrar.vista.php');
