@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $nombre = limpiarDatosInicio($_POST['nombre']);
           $codigo = limpiarDatosInicio($_POST['codigo']);
           $cat_padre = limpiarDatosInicio($_POST['cat_padre']);
+          $cat_padre = $cat_padre !== '' ? $cat_padre : 'Principal';
          
          $consulta = $conexion->prepare(
           'UPDATE categorias SET codigo = :codigo, nombre = :nombre, cat_padre = :cat_padre WHERE id = :id'

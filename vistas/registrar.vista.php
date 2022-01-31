@@ -35,29 +35,29 @@
             </div>
             <div class="mb-3">
                 <label for="ci_paciente" class="form-label">Cédula del Paciente</label>
-                <input type="text" class="form-control" name="ci_paciente" id="ci_paciente">
+                <input type="number" class="form-control" name="ci_paciente" id="ci_paciente">
             </div>
             <div class="mb-3">
                 <label for="tipo" class="form-label">Tipo de Muestra</label>
                 <select class="form-select" name="tipo" id="tipo">
                     <?php foreach($tipos_muestras as $tipo_muestra): ?>
-                    <?php if($tipo_muestra['cat_padre'] == NULL): ?>    
-                    <option value="<?php echo $tipo_muestra['nombre']; ?>"><?php echo $tipo_muestra['nombre']; ?></option>
+                    <?php if($tipo_muestra['cat_padre'] !== 'Principal'): ?>    
+                    <option value="<?php echo $tipo_muestra['id']; ?>"><?php echo $tipo_muestra['nombre']; ?></option>
                     <?php endif; ?> 
                     <?php endforeach; ?> 
                 </select>
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label for="tipo_tejido" class="form-label">Tipo de Tejido</label>
                 <select class="form-select" name="tipo_tejido" id="tipo_tejido">
                     <option value="NULL">No tiene</option>
                     <?php foreach($tipos_muestras as $tipo_muestra): ?>
-                    <?php if($tipo_muestra['cat_padre'] !== NULL): ?>    
+                    <?php if($tipo_muestra['cat_padre'] !== 'Principal'): ?>    
                     <option value="<?php echo $tipo_muestra['nombre']; ?>"><?php echo $tipo_muestra['nombre']; ?></option>
                     <?php endif; ?> 
                     <?php endforeach; ?> 
                 </select>
-            </div>
+            </div> -->
             <div class="mb-3">
                 <input type="hidden" class="form-control" name="impresa" id="impresa" value="No">
             </div>

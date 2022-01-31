@@ -13,6 +13,7 @@
                 <div class="mb-3">
                     <label for="cat_padre" class="form-label">Categoría Padre</label>
                     <select class="form-select" name="cat_padre" id="cat_padre">
+                    <option value="Principal">Principal</option>
                     <?php foreach($datos as $dato): ?>
                     <option value="<?php echo $dato['nombre']; ?>"><?php echo $dato['nombre']; ?></option>
                     <?php endforeach; ?> 

@@ -10,12 +10,12 @@
                     <label for="nombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" name="nombre" id="nombre" value="<?php echo $datos['nombre']; ?>">
                 </div>
-                <?php if($datos['cat_padre'] !== NULL): ?>
+                <?php if($datos['cat_padre'] !== 'principal'): ?>
                 <div class="mb-3">
                     <label for="cat_padre" class="form-label">Categoría Padre</label>
                     <select class="form-select" name="cat_padre" id="cat_padre">
                         <option value="<?php echo $datos['cat_padre']; ?>"><?php echo $datos['cat_padre']; ?></option>
-                        <option value="NULL">No tiene</option>
+                        <option value="Principal">No tiene</option>
                         <?php foreach($tipos_muestras as $tipo_muestra): ?>
                         <option value="<?php echo $tipo_muestra['nombre']; ?>"><?php echo $tipo_muestra['nombre']; ?></option>
                         <?php endforeach; ?> 
