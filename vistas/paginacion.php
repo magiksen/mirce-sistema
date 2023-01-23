@@ -18,7 +18,7 @@
     
      <?php for($i = 1; $i <= $numero_paginas; $i++): ?>
         <?php if (pagina_actual() === $i): ?>
-            <li class="page-item"><a class="page-link"><?php echo $i; ?></a></li>
+            <li class="page-item active"><a class="page-link"><?php echo $i; ?></a></li>
         <?php else: ?>
             <li class="page-item"><a class="page-link" href="index.php?p=<?php echo $i; ?>"><?php echo $i; ?></a></li>
         <?php endif; ?>

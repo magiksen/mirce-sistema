@@ -13,7 +13,7 @@ function limpiarDatos($datos){
     $datos = trim($datos);
     $datos = stripslashes($datos);
     $datos = htmlspecialchars($datos);
-    $datos = ucfirst($datos);
+    $datos = ucwords($datos);
     return $datos;
 }
 

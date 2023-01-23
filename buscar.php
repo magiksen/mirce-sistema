@@ -35,7 +35,7 @@ if ($_SESSION['tipo'] == 'super') {
         $busqueda = limpiarDatosMinus($_GET['busqueda']);
 
         $stament = $conexion->prepare(
-            'SELECT * FROM muestras WHERE nombre_institucion LIKE :busqueda OR nombre_paciente LIKE :busqueda OR ci_paciente LIKE :busqueda OR codigo LIKE :busqueda OR tipo LIKE :busqueda OR fecha LIKE :busqueda'
+            'SELECT * FROM muestras WHERE nombre_institucion LIKE :busqueda OR nombre_paciente LIKE :busqueda OR ci_paciente LIKE :busqueda OR codigo LIKE :busqueda OR tipo LIKE :busqueda OR fecha LIKE :busqueda OR nombre_doctor LIKE :busqueda OR tipo_tejido LIKE :busqueda'
         );
         $stament->execute(array(':busqueda' => "%$busqueda%"));
         $resultados = $stament->fetchAll();

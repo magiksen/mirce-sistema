@@ -1,29 +1,54 @@
-<?php
-$full_name = $_SERVER[ 'PHP_SELF' ];
-$name_array = explode( '/', $full_name );
-$count = count( $name_array );
-$page_name = $name_array[$count-1];
-?>
-<?php if ($page_name=='index.php' || $page_name=='buscar.php' ): ?>
 <footer class="footer">
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid justify-content-center">
-            <a class="navbar-brand" href="<?php echo RUTA; ?>/admin">Realizado por Mircelab. © 2021. Todos los Derechos Reservados</a>
-        </div>
-    </nav>
-</footer>
-<?php else: ?>
-    <footer class="footer">
-        <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid justify-content-center">
-                <a class="navbar-brand" href="<?php echo RUTA; ?>/admin">Realizado por Mircelab. © 2021. Todos los Derechos Reservados</a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <script>document.write(new Date().getFullYear())</script> © Mircelab.
             </div>
-        </nav>
-    </footer>
-<?php endif; ?>
-<script src="<?php echo RUTA; ?>js/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-<script src="<?php echo RUTA; ?>js/custom.js"></script>
+            <div class="col-sm-6">
+                <div class="text-sm-end d-none d-sm-block">
+                    Creado con <i class="mdi mdi-heart text-danger"></i> por Samuel Escobar
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</div>
+<!-- end main content-->
+
+</div>
+<!-- END layout-wrapper -->
+
+<!-- Right bar overlay-->
+<div class="rightbar-overlay"></div>
+
+<!-- JAVASCRIPT -->
+<script src="<?php echo RUTA; ?>assets/libs/jquery/jquery.min.js"></script>
+<script src="<?php echo RUTA; ?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo RUTA; ?>assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="<?php echo RUTA; ?>assets/libs/simplebar/simplebar.min.js"></script>
+<script src="<?php echo RUTA; ?>assets/libs/node-waves/waves.min.js"></script>
+
+
+<!-- apexcharts -->
+<script src="<?php echo RUTA; ?>assets/libs/apexcharts/apexcharts.min.js"></script>
+
+<!-- jquery.vectormap map -->
+<script src="<?php echo RUTA; ?>assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="<?php echo RUTA; ?>assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js"></script>
+
+<!-- Required datatable js -->
+<script src="<?php echo RUTA; ?>assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo RUTA; ?>assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Responsive examples -->
+<script src="<?php echo RUTA; ?>assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?php echo RUTA; ?>assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+<script src="<?php echo RUTA; ?>assets/js/pages/dashboard.init.js"></script>
+
+<!-- App js -->
+<script src="<?php echo RUTA; ?>assets/js/app.js"></script>
 </body>
+
 </html>

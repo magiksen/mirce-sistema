@@ -16,13 +16,13 @@ $datos = $datos[0];
 $tipos_muestras = cat_muestras($conexion);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          //$codigo = limpiarDatosInicio($_POST['codigo']);
-          $nombre_institucion = limpiarDatosInicio($_POST['nombre_institucion']);
-          $pago = limpiarDatosInicio($_POST['pago']);
+          $codigo = limpiarDatosInicio($_POST['codigo']);
+          $nombre_institucion = limpiarDatos($_POST['nombre_institucion']);
+          $pago = limpiarDatos($_POST['pago']);
           $dolares = limpiarDatosInicio($_POST['dolares']);
           $bolivares = limpiarDatosInicio($_POST['bolivares']);
-          $nombre_paciente = limpiarDatosInicio($_POST['nombre_paciente']);
-          $nombre_doctor = limpiarDatosInicio($_POST['nombre_doctor']);
+          $nombre_paciente = limpiarDatos($_POST['nombre_paciente']);
+          $nombre_doctor = limpiarDatos($_POST['nombre_doctor']);
           $ci_paciente = limpiarDatosInicio($_POST['ci_paciente']);
           $tipo_tejido = limpiarDatosInicio($_POST['tipo']);
 
@@ -50,23 +50,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
           $twoYear = date("y");
 
-          $cat_code = obtener_cat_code($conexion, $cat_id);
-          $cat_code = $cat_code[0][0];
+        //   $cat_code = obtener_cat_code($conexion, $cat_id);
+        //   $cat_code = $cat_code[0][0];
 
-          $cat_code = $cat_code + 1;
+        //   $cat_code = $cat_code + 1;
 
-          $actualizar_codigos = $conexion->prepare(
-                  'UPDATE categorias SET codigo = :codigo WHERE id = :id'
-              );
+        //   $actualizar_codigos = $conexion->prepare(
+        //           'UPDATE categorias SET codigo = :codigo WHERE id = :id'
+        //       );
 
-          $actualizar_codigos  ->execute(array(
-                  'codigo' => $cat_code,
-                  'id' => $cat_id
-              ));
+        //   $actualizar_codigos  ->execute(array(
+        //           'codigo' => $cat_code,
+        //           'id' => $cat_id
+        //       ));
 
 
           
-          $codigo = $cat_code. '-'.$twoYear;
+        //   $codigo = $cat_code. '-'.$twoYear;
  
 
          $consulta = $conexion->prepare(

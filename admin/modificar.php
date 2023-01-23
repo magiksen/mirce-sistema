@@ -15,12 +15,12 @@ if (!$conexion) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $id = $_POST['id'];  
           $codigo = limpiarDatosInicio($_POST['codigo']);
-          $nombre_institucion = limpiarDatosInicio($_POST['nombre_institucion']);
-          $nombre_doctor = limpiarDatosInicio($_POST['nombre_doctor']);
+          $nombre_institucion = limpiarDatos($_POST['nombre_institucion']);
+          $nombre_doctor = limpiarDatos($_POST['nombre_doctor']);
           $pago = limpiarDatosInicio($_POST['pago']);
           $dolares = limpiarDatosInicio($_POST['dolares']);
           $bolivares = limpiarDatosInicio($_POST['bolivares']);
-          $nombre_paciente = limpiarDatosInicio($_POST['nombre_paciente']);
+          $nombre_paciente = limpiarDatos($_POST['nombre_paciente']);
           $ci_paciente = limpiarDatosInicio($_POST['ci_paciente']);
           $impresa = limpiarDatosInicio($_POST['impresa']);
           $fecha = limpiarDatosInicio($_POST['fecha']);

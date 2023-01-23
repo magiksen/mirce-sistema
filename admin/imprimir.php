@@ -12,22 +12,37 @@ if (!$conexion) {
     header('location: ../error.php');
 }
 
-$id = limpiarDatos($_GET['id']);
+$id = limpiarDatosInicio($_GET['id']);
+$imp = limpiarDatosInicio($_GET['imp']);
 $impresa = 'Si';
+$noImpresa = 'No';
 
 if (!$id) {
     header('location: ' . RUTA . 'admin');
 }
 
-$consulta = $conexion->prepare(
-          'UPDATE muestras SET impresa = :impresa WHERE id = :id'
-          );
+if ($imp == "no") {
+    $consulta = $conexion->prepare(
+        'UPDATE muestras SET impresa = :impresa WHERE id = :id'
+        );
 
-          $consulta->execute(array(
-                'impresa' => $impresa,
-                'id' => $id
-            ));
+        $consulta->execute(array(
+              'impresa' => $impresa,
+              'id' => $id
+          ));
 
-            header('location: ' . RUTA . 'admin');    
+          header('location: ' . RUTA . 'admin'); 
+} else {
+    $consulta = $conexion->prepare(
+        'UPDATE muestras SET impresa = :impresa WHERE id = :id'
+        );
+
+        $consulta->execute(array(
+              'impresa' => $noImpresa,
+              'id' => $id
+          ));
+
+          header('location: ' . RUTA . 'admin'); 
+}
 
 ?>

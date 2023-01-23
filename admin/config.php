@@ -1,15 +1,15 @@
 <?php
 
-DEFINE('RUTA', 'http://localhost/mirce-sistema/');
+const RUTA = 'http://localhost/mirce-sistema/';
 
 $bd_config = array (
-	'basedatos' => 'mircelab',
+	'basedatos' => 'mirce_sistema_db',
 	'usuario' => 'root',
 	'pass' => ''
 );
 
 $blog_config = array (
-	'datos_pagina' => '20',
+	'datos_pagina' => '50',
 	'carpeta_imagenes' => 'img/'
 );
 

@@ -85,7 +85,7 @@
                                 <td class="imprimir"><a href="<?php echo RUTA; ?>admin/modificar.php?id=<?php echo $muestra['id']; ?>" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                                 <td class="imprimir"><a role="button" onclick="return confirm(' ¿ Estas Seguro ?')" href="<?php echo RUTA; ?>admin/eliminar.php?id=<?php echo $muestra['id']; ?>" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                 <?php if ($muestra['impresa'] == 'Si'): ?>    
-                                <td class="imprimir"><i class="fa fa-ban" aria-hidden="true"></i></td>
+                                <td class="imprimir"><i class="fa fa-check" aria-hidden="true" style="color: #1fcb5c;"></i></td>
                                 <?php else: ?>
                                     <td class="imprimir"><a onclick="return confirm(' ¿ Estas Seguro de que se ha impreso ?')" href="<?php echo RUTA; ?>admin/imprimir.php?id=<?php echo $muestra['id']; ?>" title="Imprimir"><i class="fa fa-print" aria-hidden="true"></i></a></td>
                                 <?php endif; ?>  
