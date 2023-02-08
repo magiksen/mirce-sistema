@@ -75,6 +75,12 @@ function cat_muestras($conexion) {
     return $sentencia->fetchAll();
 }
 
+function tipos_de_muestras($conexion, $tipo_de_muestra) {
+    $sentencia = $conexion->prepare("SELECT * FROM categorias WHERE cat_padre = '$tipo_de_muestra'");
+    $sentencia->execute();
+    return $sentencia->fetchAll();
+}
+
 function obtener_cat_id($conexion, $id) {
     $resultado = $conexion->prepare("SELECT * FROM categorias WHERE id = $id LIMIT 1");
     $resultado->execute();

@@ -13,7 +13,8 @@ if (!$conexion) {
 $datos = codigos_muestras($conexion);
 $datos = $datos[0];
 
-$tipos_muestras = cat_muestras($conexion);
+$tipo_de_muestra = $_GET['tipo'];
+$tipos_muestras = tipos_de_muestras($conexion, $tipo_de_muestra);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $codigo = limpiarDatosInicio($_POST['codigo']);

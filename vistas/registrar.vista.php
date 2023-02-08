@@ -55,6 +55,9 @@
                                                         <input type="number" class="form-control" name="edad_paciente" id="edad_paciente">
                                                     </div>
                                                     <div class="mb-3">
+                                                        <input type="text" class="form-control" readonly value="<?php echo $tipo_de_muestra ?>">
+                                                    </div>
+                                                    <div class="mb-3">
                                                         <label for="tipo" class="form-label">Tipo de Muestra</label>
                                                         <select class="form-select" name="tipo" id="tipo">
                                                             <?php foreach($tipos_muestras as $tipo_muestra): ?>

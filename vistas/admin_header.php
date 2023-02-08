@@ -157,10 +157,14 @@
                         </li>
                     <?php elseif ($_SESSION['tipo']=='admin'): ?>
                         <li>
-                            <a href="<?php echo RUTA; ?>admin/registrar.php" class=" waves-effect">
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="ri-dashboard-line"></i>
-                                <span>Registrar Muestra</span>
+                                <span>Registrar Muestras</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=Biopsia">Biopsias</a></li>
+                                <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=Citología">Citologías</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="<?php echo RUTA; ?>admin/administracion.php" class=" waves-effect">
