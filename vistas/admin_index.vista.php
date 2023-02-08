@@ -27,7 +27,7 @@
 
                                 <div class="table-rep-plugin">
                                     <div class="table-responsive mb-0" data-pattern="priority-columns">
-                                        <table id="tech-companies-1" class="table">
+                                        <table id="datatable" class="table">
                                             <thead>
                                             <tr>
                                                 <th data-priority="1">CI</th>
@@ -93,7 +93,7 @@
 
                                 <div class="table-rep-plugin">
                                     <div class="table-responsive mb-0" data-pattern="priority-columns">
-                                        <table id="tech-companies-1" class="table">
+                                        <table id="datatable-1" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                             <tr>
                                                 <th>Código</th>
@@ -102,6 +102,7 @@
                                                 <th>Pago</th>
                                                 <th>Nombre Paciente</th>
                                                 <th>Cedula Paciente</th>
+                                                <th>Edad</th>
                                                 <th>Tipo</th>
                                                 <th>Impresa</th>
                                                 <th>Fecha</th>
@@ -128,11 +129,12 @@
                                                         <?php endif; ?>
                                                         <td><?php echo $muestra['nombre_paciente']; ?></td>
                                                         <td><?php echo number_format($muestra['ci_paciente'], 0, '', '.'); ?></td>
+                                                        <td><?php echo $muestra['edad_paciente']; ?></td>
                                                         <td><?php echo $muestra['tipo']; ?></td>
                                                         <td><?php echo $muestra['impresa']; ?></td>
                                                         <td><?php echo $muestra['fecha']; ?></td>
                                                         <?php if ($_SESSION['tipo']=='admin'): ?>
-                                                            <td><a href="modificar.php?id=<?php echo $muestra['id']; ?>" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                                                            <td><a href="modificar.php?id=<?php echo $muestra['id']; ?>" title="Editar"><i class="ri-edit-fill "></i></a></td>
                                                             <td><a role="button" onclick="return confirm(' ¿ Estas Seguro ?')" href="eliminar.php?id=<?php echo $muestra['id']; ?>" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                                             <?php if ($muestra['impresa'] == 'Si'): ?>
                                                                 <td><a href="<?php echo RUTA; ?>admin/imprimir.php?id=<?php echo $muestra['id']; ?>&imp=si" title="No Impresa"><i class="fa fa-check" aria-hidden="true" style="color: #1fcb5c;"></i></a></td>
@@ -149,7 +151,6 @@
                                             <?php endif; ?>
                                             </tbody>
                                         </table>
-                                        <?php require 'paginacion.php'; ?>
                                     </div>
 
                                 </div>
@@ -158,6 +159,7 @@
                         </div>
                     </div> <!-- end col -->
                 </div> <!-- end row -->
+
             <?php endif; ?>
 
         </div> <!-- container-fluid -->
@@ -165,3 +167,9 @@
     <!-- End Page-content -->
 
 <?php require 'footer.php'; ?>
+
+    <script>
+        $(document).ready(function () {
+            $('#datatable-1').DataTable();
+        });
+    </script>

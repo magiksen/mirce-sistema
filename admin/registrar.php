@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $nombre_paciente = limpiarDatos($_POST['nombre_paciente']);
           $nombre_doctor = limpiarDatos($_POST['nombre_doctor']);
           $ci_paciente = limpiarDatosInicio($_POST['ci_paciente']);
+          $edad_paciente = limpiarDatosInicio($_POST['edad_paciente']);
           $tipo_tejido = limpiarDatosInicio($_POST['tipo']);
 
           $daticos = obtener_cat_parent($conexion, $tipo_tejido);
@@ -70,8 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  
 
          $consulta = $conexion->prepare(
-          'INSERT INTO muestras (id, codigo, nombre_institucion, pago, dolares, bolivares, nombre_paciente, ci_paciente, tipo, impresa, fecha, nombre_doctor, tipo_tejido)
-          VALUES (null, :codigo, :nombre_institucion, :pago, :dolares, :bolivares, :nombre_paciente, :ci_paciente, :tipo, :impresa, :fecha, :nombre_doctor, :tipo_tejido)'
+          'INSERT INTO muestras (id, codigo, nombre_institucion, pago, dolares, bolivares, nombre_paciente, ci_paciente, edad_paciente, tipo, impresa, fecha, nombre_doctor, tipo_tejido)
+          VALUES (null, :codigo, :nombre_institucion, :pago, :dolares, :bolivares, :nombre_paciente, :ci_paciente, :edad_paciente, :tipo, :impresa, :fecha, :nombre_doctor, :tipo_tejido)'
           );
 
           $consulta->execute(array(
@@ -82,6 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'bolivares' => $bolivares,
                 'nombre_paciente' => $nombre_paciente,
                 'ci_paciente' => $ci_paciente,
+                'edad_paciente' => $edad_paciente,
                 'tipo' => $tipo,
                 'impresa' => $impresa,
                 'fecha' => $fecha,

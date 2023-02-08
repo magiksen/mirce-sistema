@@ -17,10 +17,17 @@ $('#pago').on('change', function() {
   	if (pagoValue == 'Con pago') {
   		$('.dolarLabel').text("Monto en $");
   		$('.bolivarLabel').text("Monto en Bs.");
-  	} else {
+		$('.dolares').show();
+		$('.bolivares').show();
+  	} else if (pagoValue == 'Sin pago') {
   		$('.dolarLabel').text("Deuda en $");
   		$('.bolivarLabel').text("Deuda en Bs.");
-  	}
+		$('.dolares').show();
+		$('.bolivares').show();
+  	} else {
+		$('.dolares').hide();
+		$('.bolivares').hide();
+	}
 });
 
 $( function() {

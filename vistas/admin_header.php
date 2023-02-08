@@ -30,6 +30,7 @@
     <!-- App Css-->
     <link href="<?php echo RUTA; ?>assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body data-topbar="dark">
@@ -47,19 +48,19 @@
                 <div class="navbar-brand-box">
                     <a href="<?php echo RUTA; ?>admin" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="<?php echo RUTA; ?>img/logo.png" alt="logo-sm" height="22">
+                                    <img src="<?php echo RUTA; ?>img/logo.png" alt="logo-sm" height="55">
                                 </span>
                         <span class="logo-lg">
-                                    <img src="<?php echo RUTA; ?>img/logo.png" alt="logo-dark" height="20">
+                                    <img src="<?php echo RUTA; ?>img/logo.png" alt="logo-dark" height="55">
                                 </span>
                     </a>
 
                     <a href="<?php echo RUTA; ?>admin" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="<?php echo RUTA; ?>img/logo.png" alt="logo-sm-light" height="22">
+                                    <img src="<?php echo RUTA; ?>img/logo.png" alt="logo-sm-light" height="55">
                                 </span>
                         <span class="logo-lg">
-                                    <img src="<?php echo RUTA; ?>img/logo.png" alt="logo-light" height="20">
+                                    <img src="<?php echo RUTA; ?>img/logo.png" alt="logo-light" height="55">
                                 </span>
                     </a>
                 </div>
