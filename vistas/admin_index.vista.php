@@ -49,7 +49,7 @@
                                                     <td><?php echo $usuario['usuario']; ?></td>
                                                     <td><?php echo $usuario['departamento']; ?></td>
                                                     <td><?php echo $usuario['tipo']; ?></td>
-                                                    <td><a href="edituser.php?id=<?php echo $usuario['id']; ?>" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                                                    <td><a href="edituser.php?id=<?php echo $usuario['id']; ?>" title="Editar"><i class="ri-edit-fill "></i></a></td>
                                                     <?php if ($usuario['tipo']=='super'): ?>
                                                         <td><i class="fa fa-check" aria-hidden="true"></i></td>
                                                     <?php else: ?>

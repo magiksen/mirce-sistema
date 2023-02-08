@@ -15,9 +15,11 @@ $datos = $datos[0];
 
 $tipo_de_muestra = $_GET['tipo'];
 $tipos_muestras = tipos_de_muestras($conexion, $tipo_de_muestra);
+$num_ultimo_reg = calcular_codigo($conexion, $tipo_de_muestra);
+$num_ultimo_reg = $num_ultimo_reg[0][0];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          $codigo = limpiarDatosInicio($_POST['codigo']);
+          //$codigo = limpiarDatosInicio($_POST['codigo']);
           $nombre_institucion = limpiarDatos($_POST['nombre_institucion']);
           $pago = limpiarDatos($_POST['pago']);
           $dolares = limpiarDatosInicio($_POST['dolares']);
@@ -54,21 +56,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         //   $cat_code = obtener_cat_code($conexion, $cat_id);
         //   $cat_code = $cat_code[0][0];
+           $tipos_muestras = tipos_de_muestras($conexion, $cat_name);
+           $num_ultimo_reg = calcular_codigo($conexion, $cat_name);
+           $num_ultimo_reg = $num_ultimo_reg[0][0];
 
-        //   $cat_code = $cat_code + 1;
+           $cat_code = $num_ultimo_reg + 1;
 
-        //   $actualizar_codigos = $conexion->prepare(
-        //           'UPDATE categorias SET codigo = :codigo WHERE id = :id'
-        //       );
+           $actualizar_codigos = $conexion->prepare(
+                   'UPDATE categorias SET codigo = :codigo WHERE id = :id'
+               );
 
-        //   $actualizar_codigos  ->execute(array(
-        //           'codigo' => $cat_code,
-        //           'id' => $cat_id
-        //       ));
+           $actualizar_codigos  ->execute(array(
+                   'codigo' => $cat_code,
+                   'id' => $cat_id
+               ));
 
 
           
-        //   $codigo = $cat_code. '-'.$twoYear;
+        $codigo = $cat_code. '-'.$twoYear;
  
 
          $consulta = $conexion->prepare(

@@ -81,6 +81,13 @@ function tipos_de_muestras($conexion, $tipo_de_muestra) {
     return $sentencia->fetchAll();
 }
 
+function calcular_codigo($conexion, $tipo_de_muestra) {
+    $resultado = $conexion->prepare("SELECT COUNT(*) FROM muestras WHERE tipo = '$tipo_de_muestra'");
+    $resultado->execute();
+    $resultado = $resultado->fetchAll();
+    return ($resultado) ? $resultado : false;
+}
+
 function obtener_cat_id($conexion, $id) {
     $resultado = $conexion->prepare("SELECT * FROM categorias WHERE id = $id LIMIT 1");
     $resultado->execute();

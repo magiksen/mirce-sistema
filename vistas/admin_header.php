@@ -162,8 +162,8 @@
                                 <span>Registrar Muestras</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=Biopsia">Biopsias</a></li>
-                                <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=Citología">Citologías</a></li>
+                                <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=Biopsias">Biopsias</a></li>
+                                <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=Citologías">Citologías</a></li>
                             </ul>
                         </li>
                         <li>

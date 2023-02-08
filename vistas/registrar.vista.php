@@ -27,7 +27,7 @@
                                                 <h1 class="page-header">Registrar Muestra</h1>
                                                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
                                                     <div class="mb-3">
-                                                        <label for="codigo" class="form-label">Código</label>
+                                                        <label for="codigo" class="form-label">Código <span class="badge badge-soft-danger">Último: <?php echo $num_ultimo_reg ?></span></label>
                                                         <input type="text" class="form-control" name="codigo" id="codigo">
                                                     </div>
                                                     <div class="mb-3">
