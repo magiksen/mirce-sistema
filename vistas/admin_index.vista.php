@@ -170,6 +170,21 @@
 
     <script>
         $(document).ready(function () {
-            $('#datatable-1').DataTable();
+            $('#datatable-1').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ muestras por página",
+                    "zeroRecords": "Sin resultados - disculpe",
+                    "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay muestras disponibles",
+                    "infoFiltered": "(filtrado de _MAX_ total de muestras)",
+                    "paginate": {
+                        "first":      "Primero",
+                        "last":       "Último",
+                        "next":       "Siguiente",
+                        "previous":   "Anterior"
+                    },
+                    "search":         "Buscar:",
+                }
+            });
         });
     </script>

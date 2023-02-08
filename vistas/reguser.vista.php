@@ -46,6 +46,7 @@
                                         <select class="form-select" name="tipo" id="tipo">
                                             <option value="transcriptora">Transcriptora</option>
                                             <option value="lamina">Laminas Y Bloques</option>
+                                            <option value="registro">Registradora</option>
                                             <option value="user">Usuario</option>
                                             <option value="admin">Doctora</option>
                                             <option value="super">SuperAdmin</option>
