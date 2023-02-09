@@ -57,6 +57,12 @@ function obtener_datos($datos_pagina, $conexion) {
     return $sentencia->fetchAll();
 }
 
+function obtener_muestras($conexion) {
+    $sentencia = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM muestras ORDER BY id");
+    $sentencia->execute();
+    return $sentencia->fetchAll();
+}
+
 function reporte_usuarios($conexion) {
     $sentencia = $conexion->prepare("SELECT * FROM usuarios");
     $sentencia->execute();

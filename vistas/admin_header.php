@@ -164,6 +164,10 @@
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=Biopsias">Biopsias</a></li>
                                 <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=Citologías">Citologías</a></li>
+                                <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=Autopsias">Autopsias</a></li>
+                                <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=Cultivos">Cultivos</a></li>
+                                <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=Tipificaciónes">Tipificaciónes</a></li>
+                                <li><a href="<?php echo RUTA; ?>admin/registrar.php?tipo=IHQ">IHQ</a></li>
                             </ul>
                         </li>
                         <li>

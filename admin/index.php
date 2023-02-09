@@ -97,7 +97,7 @@ if ($_SESSION['tipo'] == 'super') {
             $titulo = 'Resultados de los filtros: ';
         }
     } else {
-        $datos = obtener_datos($blog_config['datos_pagina'], $conexion);
+        $datos = obtener_muestras($conexion);
     }
 //    if (!$datos) {
 //        header('location: ../error.php');

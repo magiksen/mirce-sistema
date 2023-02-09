@@ -93,7 +93,7 @@
 
                                 <div class="table-rep-plugin">
                                     <div class="table-responsive mb-0" data-pattern="priority-columns">
-                                        <table id="datatable-1" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                        <table id="datatable-1" data-order='[[ 0, "desc" ]]' class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                             <tr>
                                                 <th>Código</th>
@@ -128,7 +128,8 @@
                                                             <td><p style="margin-bottom: 0;"><span style="font-size: 10px;color: green;">Exonerado</span></p></td>
                                                         <?php endif; ?>
                                                         <td><?php echo $muestra['nombre_paciente']; ?></td>
-                                                        <td><?php echo number_format($muestra['ci_paciente'], 0, '', '.'); ?></td>
+<!--                                                        <td>--><?php //echo number_format($muestra['ci_paciente'], 0, '', '.'); ?><!--</td>-->
+                                                        <td><?php echo $muestra['ci_paciente']; ?></td>
                                                         <td><?php echo $muestra['edad_paciente']; ?></td>
                                                         <td><?php echo $muestra['tipo']; ?></td>
                                                         <td><?php echo $muestra['impresa']; ?></td>

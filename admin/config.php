@@ -3,7 +3,7 @@
 const RUTA = 'http://localhost/mirce-sistema/';
 
 $bd_config = array (
-	'basedatos' => 'sistema_mirce_db',
+	'basedatos' => 'mirce_sistema_db',
 	'usuario' => 'root',
 	'pass' => ''
 );
