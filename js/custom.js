@@ -64,4 +64,14 @@ $('#cat_padre').change(function(){
    }
 });
 
+$('#tipo').change(function(){
+	var cat_selected = $(this).val();
+	console.log(cat_selected);
+	if (cat_selected == 17) {
+		$('.hideOnSelect').show();
+	} else {
+		$('.hideOnSelect').hide();
+	}
+});
+
    

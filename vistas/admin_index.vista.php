@@ -96,6 +96,7 @@
                                         <table id="datatable-1" data-order='[[ 0, "desc" ]]' class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                             <tr>
+                                                <th style="display: none;">ID</th>
                                                 <th>Código</th>
                                                 <th>Nombre Institución</th>
                                                 <th>Nombre Doctor/ra</th>
@@ -117,6 +118,7 @@
                                             <?php if (!empty($datos)): ?>
                                                 <?php foreach($datos as $muestra): ?>
                                                     <tr>
+                                                        <td style="display: none;"><?php echo $muestra['id']; ?></td>
                                                         <td><a href="ver.php?id=<?php echo $muestra['id']; ?>"><?php echo $muestra['codigo']; ?></a></td>
                                                         <td><?php echo $muestra['nombre_institucion']; ?></td>
                                                         <td><?php echo $muestra['nombre_doctor']; ?></td>

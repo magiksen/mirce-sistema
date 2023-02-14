@@ -53,11 +53,6 @@
                                             <label for="tipo" class="form-label">Tipo de Muestra</label>
                                             <select class="form-select" name="tipo" id="tipo">
                                                 <option value="<?php echo $daticos; ?>"><?php echo $datos['tipo_tejido']; ?></option>
-                                                <?php foreach($tipos_muestras as $tipo_muestra): ?>
-                                                    <?php if($tipo_muestra['cat_padre'] !== 'Principal'): ?>
-                                                        <option value="<?php echo $tipo_muestra['id']; ?>"><?php echo $tipo_muestra['nombre']; ?></option>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="mb-3">

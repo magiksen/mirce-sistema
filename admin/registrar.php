@@ -19,7 +19,7 @@ $num_ultimo_reg = calcular_codigo($conexion, $tipo_de_muestra);
 $num_ultimo_reg = $num_ultimo_reg[0][0];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          //$codigo = limpiarDatosInicio($_POST['codigo']);
+          $codigo_manual = limpiarDatosInicio($_POST['codigo']);
           $nombre_institucion = limpiarDatos($_POST['nombre_institucion']);
           $pago = limpiarDatos($_POST['pago']);
           $dolares = limpiarDatosInicio($_POST['dolares']);
@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $ci_paciente = limpiarDatosInicio($_POST['ci_paciente']);
           $edad_paciente = limpiarDatosInicio($_POST['edad_paciente']);
           $tipo_tejido = limpiarDatosInicio($_POST['tipo']);
+          $tipo_otros = limpiarDatosInicio($_POST['tipo_otros']);
 
           $daticos = obtener_cat_parent($conexion, $tipo_tejido);
 
@@ -47,7 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $subcat_name = obtener_cat_name($conexion, $tipo_tejido);
           $subcat_name = $subcat_name[0][0];
 
-          $tipo_tejido = $subcat_name;
+    // Si el campo de tipo es Otro tomar el otro input como tipo de muestra
+            if ($subcat_name == "Otros") {
+                $tipo_tejido = $tipo_otros;
+            } else {
+                $tipo_tejido = $subcat_name;
+            }
 
           $impresa = limpiarDatosInicio($_POST['impresa']);
           $fecha = limpiarDatosInicio($_POST['fecha']);
@@ -60,16 +66,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            $num_ultimo_reg = calcular_codigo($conexion, $cat_name);
            $num_ultimo_reg = $num_ultimo_reg[0][0];
 
-           $cat_code = $num_ultimo_reg + 1;
+           if ($codigo_manual) {
+               $cat_code = $codigo_manual;
+           } else {
+               $cat_code = $num_ultimo_reg + 1;
+           }
 
-           $actualizar_codigos = $conexion->prepare(
-                   'UPDATE categorias SET codigo = :codigo WHERE id = :id'
-               );
+            $actualizar_codigos = $conexion->prepare(
+                'UPDATE categorias SET codigo = :codigo WHERE id = :id'
+            );
 
-           $actualizar_codigos  ->execute(array(
-                   'codigo' => $cat_code,
-                   'id' => $cat_id
-               ));
+            $actualizar_codigos  ->execute(array(
+                'codigo' => $cat_code,
+                'id' => $cat_id
+            ));
+
 
 
           

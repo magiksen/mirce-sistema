@@ -28,7 +28,7 @@
                                                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
                                                     <div class="mb-3">
                                                         <label for="codigo" class="form-label">Código <span class="badge badge-soft-danger">Último: <?php echo $num_ultimo_reg ?></span></label>
-                                                        <input type="text" class="form-control" name="codigo" id="codigo">
+                                                        <input type="number" class="form-control" name="codigo" id="codigo">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="fecha" class="form-label">Fecha</label>
@@ -66,6 +66,10 @@
                                                                 <?php endif; ?>
                                                             <?php endforeach; ?>
                                                         </select>
+                                                    </div>
+                                                    <div class="mb-3 hideOnSelect" style="display: none">
+                                                        <label for="tipo_otros" class="form-label">Otro tipo de Muestra</label>
+                                                        <input type="text" class="form-control" name="tipo_otros" id="tipo_otros">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="pago" class="form-label">Pago</label>
