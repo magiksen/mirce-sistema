@@ -81,6 +81,7 @@
                             <?php echo  $titulo  ?>
                         </div>
                         <?php endif; ?>
+                        <a type="button" class="btn btn-primary waves-effect waves-light mb-2" href="descargarexcel.php" title="Editar">Descargar Datos</a>
                     </div>
                 </div>
                 <!-- end page title -->
@@ -90,7 +91,6 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Muestras</h4>
-
                                 <div class="table-rep-plugin">
                                     <div class="table-responsive mb-0" data-pattern="priority-columns">
                                         <table id="datatable-1" data-order='[[ 0, "desc" ]]' class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">

@@ -1,14 +1,5 @@
 {
-  "name": "Sistema Mircelab",
-  "description": "description",
-  "minimum-stability": "stable",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "Magiksen",
-      "email": "elemejore@gmail.com"
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.27"
     }
-  ],
-  "require": {
-  }
 }
