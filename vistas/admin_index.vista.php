@@ -173,7 +173,7 @@
 
     <script>
         $(document).ready(function () {
-            $('#datatable-1').DataTable({
+            var table = $('#datatable-1').DataTable({
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ muestras por página",
                     "zeroRecords": "Sin resultados - disculpe",
@@ -189,5 +189,7 @@
                     "search":         "Buscar:",
                 }
             });
+
+            table.column( 0 ).visible( false );
         });
     </script>

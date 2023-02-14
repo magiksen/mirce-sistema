@@ -36,7 +36,15 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="nombre_institucion" class="form-label">Nombre Institución</label>
-                                                        <input type="text" class="form-control" name="nombre_institucion" id="nombre_institucion">
+                                                        <select class="form-select buscable" name="nombre_institucion" id="nombre_institucion">
+                                                            <?php foreach($instituciones as $institucion): ?>
+                                                                    <option value="<?php echo $institucion['nombre_institucion']; ?>"><?php echo $institucion['nombre_institucion']; ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3 hideInstitucion" style="display: none">
+                                                        <label for="otro_nombre_institucion" class="form-label">Otro Nombre Institución</label>
+                                                        <input type="text" class="form-control" name="otro_nombre_institucion" id="otro_nombre_institucion">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="nombre_doctor" class="form-label">Nombre del Doctor/ra</label>
@@ -59,7 +67,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="tipo" class="form-label">Tipo de Muestra</label>
-                                                        <select class="form-select" name="tipo" id="tipo">
+                                                        <select class="form-select buscable" name="tipo" id="tipo">
                                                             <?php foreach($tipos_muestras as $tipo_muestra): ?>
                                                                 <?php if($tipo_muestra['cat_padre'] !== 'Principal'): ?>
                                                                     <option value="<?php echo $tipo_muestra['id']; ?>"><?php echo $tipo_muestra['nombre']; ?></option>

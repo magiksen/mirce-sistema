@@ -49,7 +49,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Categorías Registradas</h4>
-                            <table class="table table-striped table-hover admin">
+                            <table id="datatable-2" class="table table-striped table-hover admin">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -88,3 +88,24 @@
 </div>
 
 <?php require 'footer.php'; ?>
+
+<script>
+    $(document).ready(function () {
+        var table = $('#datatable-2').DataTable({
+            "language": {
+                "lengthMenu": "Mostrar _MENU_ Categorías por página",
+                "zeroRecords": "Sin resultados - disculpe",
+                "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                "infoEmpty": "No hay categorías disponibles",
+                "infoFiltered": "(filtrado de _MAX_ total de categorías)",
+                "paginate": {
+                    "first":      "Primero",
+                    "last":       "Último",
+                    "next":       "Siguiente",
+                    "previous":   "Anterior"
+                },
+                "search":         "Buscar:",
+            }
+        });
+    });
+</script>

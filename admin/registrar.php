@@ -13,6 +13,8 @@ if (!$conexion) {
 $datos = codigos_muestras($conexion);
 $datos = $datos[0];
 
+$instituciones = obtener_instituciones($conexion);
+
 $tipo_de_muestra = $_GET['tipo'];
 $tipos_muestras = tipos_de_muestras($conexion, $tipo_de_muestra);
 $num_ultimo_reg = calcular_codigo($conexion, $tipo_de_muestra);
@@ -30,6 +32,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $edad_paciente = limpiarDatosInicio($_POST['edad_paciente']);
           $tipo_tejido = limpiarDatosInicio($_POST['tipo']);
           $tipo_otros = limpiarDatosInicio($_POST['tipo_otros']);
+          $institucion_otros = limpiarDatosInicio($_POST['otro_nombre_institucion']);
+
+          if ($nombre_institucion == "Otro") {
+              $nombre_institucion = $institucion_otros;
+
+              $guardar_inst = $conexion->prepare(
+                  'INSERT INTO instituciones (id, nombre_institucion) VALUES (null, :nombre_institucion)'
+              );
+
+              $guardar_inst  ->execute(array(
+                  'nombre_institucion' => $nombre_institucion,
+              ));
+          }
 
           $daticos = obtener_cat_parent($conexion, $tipo_tejido);
 

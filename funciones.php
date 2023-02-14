@@ -198,4 +198,10 @@ function traer_item_doctor($conexion) {
     return $sentencia->fetchAll();
 }
 
+function obtener_instituciones($conexion) {
+    $sentencia = $conexion->prepare("SELECT * FROM instituciones");
+    $sentencia->execute();
+    return $sentencia->fetchAll();
+}
+
 ?>

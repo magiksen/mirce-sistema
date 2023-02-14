@@ -66,12 +66,26 @@ $('#cat_padre').change(function(){
 
 $('#tipo').change(function(){
 	var cat_selected = $(this).val();
-	console.log(cat_selected);
-	if (cat_selected == 17) {
+	//console.log(cat_selected);
+	if (cat_selected == 28 || cat_selected == 32  || cat_selected == 33 || cat_selected == 34 ) {
 		$('.hideOnSelect').show();
 	} else {
 		$('.hideOnSelect').hide();
 	}
+});
+
+$('#nombre_institucion').change(function(){
+	var inst_selected = $(this).val();
+	//console.log(cat_selected);
+	if (inst_selected == 'Otro' ) {
+		$('.hideInstitucion').show();
+	} else {
+		$('.hideInstitucion').hide();
+	}
+});
+
+$(document).ready(function() {
+	$('.buscable').select2();
 });
 
    
